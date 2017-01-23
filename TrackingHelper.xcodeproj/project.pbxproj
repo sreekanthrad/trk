@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F90ACEF01DD1D9EC006671FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ACEEF1DD1D9EC006671FA /* AppDelegate.swift */; };
+		F90ACEF21DD1D9EC006671FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ACEF11DD1D9EC006671FA /* ViewController.swift */; };
+		F90ACEF51DD1D9EC006671FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90ACEF31DD1D9EC006671FA /* Main.storyboard */; };
+		F90ACEF71DD1D9EC006671FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90ACEF61DD1D9EC006671FA /* Assets.xcassets */; };
+		F90ACEFA1DD1D9EC006671FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90ACEF81DD1D9EC006671FA /* LaunchScreen.storyboard */; };
+		F90ACF0A1DD1F405006671FA /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ACF091DD1F405006671FA /* ViewController2.swift */; };
+		F913A8651E3629BD00017F38 /* ATTEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8601E3629BD00017F38 /* ATTEventModel.swift */; };
+		F913A8661E3629BD00017F38 /* ATTFlushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8611E3629BD00017F38 /* ATTFlushManager.swift */; };
+		F913A8671E3629BD00017F38 /* ATTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8621E3629BD00017F38 /* ATTLocationManager.swift */; };
+		F913A8681E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8631E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift */; };
+		F913A8691E3629BD00017F38 /* ATTScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8641E3629BD00017F38 /* ATTScreenViewModel.swift */; };
+		F913A86F1E3629D300017F38 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A86B1E3629D300017F38 /* Container.swift */; };
+		F913A8701E3629D300017F38 /* ContainerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A86C1E3629D300017F38 /* ContainerOperation.swift */; };
+		F913A8711E3629D300017F38 /* ContainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A86D1E3629D300017F38 /* ContainerRequest.swift */; };
+		F913A8721E3629D300017F38 /* ContainerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A86E1E3629D300017F38 /* ContainerResponse.swift */; };
+		F913A8741E3631D600017F38 /* ATTCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8731E3631D600017F38 /* ATTCoreDataManager.swift */; };
+		F913A8971E36326300017F38 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F913A8961E36326300017F38 /* CoreData.framework */; };
+		F913A89A1E3633AF00017F38 /* ATTDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F913A8981E3633AF00017F38 /* ATTDB.xcdatamodeld */; };
+		F93D17251E0B9A2B003A2901 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93D17241E0B9A2B003A2901 /* BaseViewController.swift */; };
+		F93D17271E0BA237003A2901 /* NotificationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93D17261E0BA237003A2901 /* NotificationListener.swift */; };
+		F97ECEC71E2F6C350089038F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97ECEC61E2F6C350089038F /* CoreLocation.framework */; };
+		F97ECECB1E2F7D3D0089038F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97ECECA1E2F7D3D0089038F /* MapKit.framework */; };
+		F9B986CD1E2CD93600E61414 /* ATTAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B986CC1E2CD93600E61414 /* ATTAnalytics.swift */; };
+		F9F7FDBD1DE6CA61000E3ED6 /* TrackingPattern.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9F7FDBB1DE6CA61000E3ED6 /* TrackingPattern.plist */; };
+		F9F7FDC71DE6CB25000E3ED6 /* ATTConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F7FDC41DE6CB25000E3ED6 /* ATTConfigConstants.swift */; };
+		F9F7FDC81DE6CB25000E3ED6 /* ATTConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F7FDC51DE6CB25000E3ED6 /* ATTConfigParser.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F90ACEEC1DD1D9EC006671FA /* TrackingHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F90ACEEF1DD1D9EC006671FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F90ACEF11DD1D9EC006671FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F90ACEF41DD1D9EC006671FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F90ACEF61DD1D9EC006671FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F90ACEF91DD1D9EC006671FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F90ACEFB1DD1D9EC006671FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F90ACF091DD1F405006671FA /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		F913A8601E3629BD00017F38 /* ATTEventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTEventModel.swift; path = Tracker/ATTEventModel.swift; sourceTree = "<group>"; };
+		F913A8611E3629BD00017F38 /* ATTFlushManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTFlushManager.swift; path = Tracker/ATTFlushManager.swift; sourceTree = "<group>"; };
+		F913A8621E3629BD00017F38 /* ATTLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTLocationManager.swift; path = Tracker/ATTLocationManager.swift; sourceTree = "<group>"; };
+		F913A8631E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTMiddlewareSchemaManager.swift; path = Tracker/ATTMiddlewareSchemaManager.swift; sourceTree = "<group>"; };
+		F913A8641E3629BD00017F38 /* ATTScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTScreenViewModel.swift; path = Tracker/ATTScreenViewModel.swift; sourceTree = "<group>"; };
+		F913A86B1E3629D300017F38 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = Container/Container.swift; sourceTree = "<group>"; };
+		F913A86C1E3629D300017F38 /* ContainerOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerOperation.swift; path = Container/ContainerOperation.swift; sourceTree = "<group>"; };
+		F913A86D1E3629D300017F38 /* ContainerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerRequest.swift; path = Container/ContainerRequest.swift; sourceTree = "<group>"; };
+		F913A86E1E3629D300017F38 /* ContainerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerResponse.swift; path = Container/ContainerResponse.swift; sourceTree = "<group>"; };
+		F913A8731E3631D600017F38 /* ATTCoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTCoreDataManager.swift; path = Tracker/ATTCoreDataManager.swift; sourceTree = "<group>"; };
+		F913A8961E36326300017F38 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F913A8991E3633AF00017F38 /* ATTDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATTDB.xcdatamodel; sourceTree = "<group>"; };
+		F93D17241E0B9A2B003A2901 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F93D17261E0BA237003A2901 /* NotificationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationListener.swift; path = Tracker/NotificationListener.swift; sourceTree = "<group>"; };
+		F97ECEC61E2F6C350089038F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F97ECECA1E2F7D3D0089038F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F9B986CC1E2CD93600E61414 /* ATTAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTAnalytics.swift; path = Tracker/ATTAnalytics.swift; sourceTree = "<group>"; };
+		F9F7FDBB1DE6CA61000E3ED6 /* TrackingPattern.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TrackingPattern.plist; path = TrackerConfig/TrackingPattern.plist; sourceTree = "<group>"; };
+		F9F7FDC41DE6CB25000E3ED6 /* ATTConfigConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTConfigConstants.swift; path = Tracker/ATTConfigConstants.swift; sourceTree = "<group>"; };
+		F9F7FDC51DE6CB25000E3ED6 /* ATTConfigParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTConfigParser.swift; path = Tracker/ATTConfigParser.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F90ACEE91DD1D9EC006671FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F913A8971E36326300017F38 /* CoreData.framework in Frameworks */,
+				F97ECECB1E2F7D3D0089038F /* MapKit.framework in Frameworks */,
+				F97ECEC71E2F6C350089038F /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F90ACEE31DD1D9EC006671FA = {
+			isa = PBXGroup;
+			children = (
+				F90ACEEE1DD1D9EC006671FA /* TrackingHelper */,
+				F90ACEED1DD1D9EC006671FA /* Products */,
+				F97ECEC51E2F6C340089038F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F90ACEED1DD1D9EC006671FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F90ACEEC1DD1D9EC006671FA /* TrackingHelper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F90ACEEE1DD1D9EC006671FA /* TrackingHelper */ = {
+			isa = PBXGroup;
+			children = (
+				F913A86A1E3629C700017F38 /* Container */,
+				F93D17261E0BA237003A2901 /* NotificationListener.swift */,
+				F9F7FDB91DE6CA53000E3ED6 /* TrackerConfig */,
+				F9F7FDAC1DE6B3D6000E3ED6 /* Tracker */,
+				F90ACEEF1DD1D9EC006671FA /* AppDelegate.swift */,
+				F90ACEF11DD1D9EC006671FA /* ViewController.swift */,
+				F90ACF091DD1F405006671FA /* ViewController2.swift */,
+				F90ACEF31DD1D9EC006671FA /* Main.storyboard */,
+				F90ACEF61DD1D9EC006671FA /* Assets.xcassets */,
+				F90ACEF81DD1D9EC006671FA /* LaunchScreen.storyboard */,
+				F90ACEFB1DD1D9EC006671FA /* Info.plist */,
+				F93D17241E0B9A2B003A2901 /* BaseViewController.swift */,
+			);
+			path = TrackingHelper;
+			sourceTree = "<group>";
+		};
+		F913A86A1E3629C700017F38 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				F913A86B1E3629D300017F38 /* Container.swift */,
+				F913A86C1E3629D300017F38 /* ContainerOperation.swift */,
+				F913A86D1E3629D300017F38 /* ContainerRequest.swift */,
+				F913A86E1E3629D300017F38 /* ContainerResponse.swift */,
+			);
+			name = Container;
+			sourceTree = "<group>";
+		};
+		F97ECEC51E2F6C340089038F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F913A8961E36326300017F38 /* CoreData.framework */,
+				F97ECECA1E2F7D3D0089038F /* MapKit.framework */,
+				F97ECEC61E2F6C350089038F /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9F7FDAC1DE6B3D6000E3ED6 /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				F913A8601E3629BD00017F38 /* ATTEventModel.swift */,
+				F913A8611E3629BD00017F38 /* ATTFlushManager.swift */,
+				F913A8621E3629BD00017F38 /* ATTLocationManager.swift */,
+				F913A8631E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift */,
+				F913A8641E3629BD00017F38 /* ATTScreenViewModel.swift */,
+				F9B986CC1E2CD93600E61414 /* ATTAnalytics.swift */,
+				F9F7FDC41DE6CB25000E3ED6 /* ATTConfigConstants.swift */,
+				F9F7FDC51DE6CB25000E3ED6 /* ATTConfigParser.swift */,
+				F913A8731E3631D600017F38 /* ATTCoreDataManager.swift */,
+				F913A8981E3633AF00017F38 /* ATTDB.xcdatamodeld */,
+			);
+			name = Tracker;
+			sourceTree = "<group>";
+		};
+		F9F7FDB91DE6CA53000E3ED6 /* TrackerConfig */ = {
+			isa = PBXGroup;
+			children = (
+				F9F7FDBB1DE6CA61000E3ED6 /* TrackingPattern.plist */,
+			);
+			name = TrackerConfig;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F90ACEEB1DD1D9EC006671FA /* TrackingHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F90ACEFE1DD1D9EC006671FA /* Build configuration list for PBXNativeTarget "TrackingHelper" */;
+			buildPhases = (
+				F90ACEE81DD1D9EC006671FA /* Sources */,
+				F90ACEE91DD1D9EC006671FA /* Frameworks */,
+				F90ACEEA1DD1D9EC006671FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrackingHelper;
+			productName = TrackingHelper;
+			productReference = F90ACEEC1DD1D9EC006671FA /* TrackingHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F90ACEE41DD1D9EC006671FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Sreekanth R";
+				TargetAttributes = {
+					F90ACEEB1DD1D9EC006671FA = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = E5D4K2QHUQ;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = F90ACEE71DD1D9EC006671FA /* Build configuration list for PBXProject "TrackingHelper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F90ACEE31DD1D9EC006671FA;
+			productRefGroup = F90ACEED1DD1D9EC006671FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F90ACEEB1DD1D9EC006671FA /* TrackingHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F90ACEEA1DD1D9EC006671FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F90ACEFA1DD1D9EC006671FA /* LaunchScreen.storyboard in Resources */,
+				F90ACEF71DD1D9EC006671FA /* Assets.xcassets in Resources */,
+				F90ACEF51DD1D9EC006671FA /* Main.storyboard in Resources */,
+				F9F7FDBD1DE6CA61000E3ED6 /* TrackingPattern.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F90ACEE81DD1D9EC006671FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F913A8691E3629BD00017F38 /* ATTScreenViewModel.swift in Sources */,
+				F90ACF0A1DD1F405006671FA /* ViewController2.swift in Sources */,
+				F913A8721E3629D300017F38 /* ContainerResponse.swift in Sources */,
+				F913A8651E3629BD00017F38 /* ATTEventModel.swift in Sources */,
+				F913A8661E3629BD00017F38 /* ATTFlushManager.swift in Sources */,
+				F9F7FDC81DE6CB25000E3ED6 /* ATTConfigParser.swift in Sources */,
+				F90ACEF21DD1D9EC006671FA /* ViewController.swift in Sources */,
+				F9B986CD1E2CD93600E61414 /* ATTAnalytics.swift in Sources */,
+				F93D17251E0B9A2B003A2901 /* BaseViewController.swift in Sources */,
+				F9F7FDC71DE6CB25000E3ED6 /* ATTConfigConstants.swift in Sources */,
+				F913A89A1E3633AF00017F38 /* ATTDB.xcdatamodeld in Sources */,
+				F913A8681E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift in Sources */,
+				F90ACEF01DD1D9EC006671FA /* AppDelegate.swift in Sources */,
+				F913A86F1E3629D300017F38 /* Container.swift in Sources */,
+				F913A8671E3629BD00017F38 /* ATTLocationManager.swift in Sources */,
+				F913A8711E3629D300017F38 /* ContainerRequest.swift in Sources */,
+				F913A8701E3629D300017F38 /* ContainerOperation.swift in Sources */,
+				F913A8741E3631D600017F38 /* ATTCoreDataManager.swift in Sources */,
+				F93D17271E0BA237003A2901 /* NotificationListener.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F90ACEF31DD1D9EC006671FA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F90ACEF41DD1D9EC006671FA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F90ACEF81DD1D9EC006671FA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F90ACEF91DD1D9EC006671FA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F90ACEFC1DD1D9EC006671FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F90ACEFD1DD1D9EC006671FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F90ACEFF1DD1D9EC006671FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E5D4K2QHUQ;
+				INFOPLIST_FILE = TrackingHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.attinad.communications.TrackingHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F90ACF001DD1D9EC006671FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E5D4K2QHUQ;
+				INFOPLIST_FILE = TrackingHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.attinad.communications.TrackingHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F90ACEE71DD1D9EC006671FA /* Build configuration list for PBXProject "TrackingHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F90ACEFC1DD1D9EC006671FA /* Debug */,
+				F90ACEFD1DD1D9EC006671FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F90ACEFE1DD1D9EC006671FA /* Build configuration list for PBXNativeTarget "TrackingHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F90ACEFF1DD1D9EC006671FA /* Debug */,
+				F90ACF001DD1D9EC006671FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F913A8981E3633AF00017F38 /* ATTDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F913A8991E3633AF00017F38 /* ATTDB.xcdatamodel */,
+			);
+			currentVersion = F913A8991E3633AF00017F38 /* ATTDB.xcdatamodel */;
+			path = ATTDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F90ACEE41DD1D9EC006671FA /* Project object */;
+}
