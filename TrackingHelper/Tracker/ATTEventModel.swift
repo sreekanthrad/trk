@@ -15,6 +15,8 @@ class ATTEventModel: NSObject {
     public var eventName:String?
     public var eventStartTime:Date?
     public var eventDuration:Double?
+    public var dataURL:String?
+    public var arguments:Dictionary<String, AnyObject>?
     public var latitude:CLLocationDegrees?
     public var longitude:CLLocationDegrees?
     
@@ -38,5 +40,27 @@ class ATTEventModel: NSObject {
         self.eventDuration = eventDuration
         self.latitude = lat
         self.longitude = log
+    }
+    
+    convenience init(screenViewID:String?,
+                     eventType type:String?,
+                     eventName name:String?,
+                     eventStartTime startTime:Date?,
+                     eventDuration:Double?,
+                     latitude lat:CLLocationDegrees?,
+                     longitude log:CLLocationDegrees?,
+                     dataURL url:String?,
+                     customArguments arguments:Dictionary<String, AnyObject>?) {
+        self.init()
+        
+        self.screenViewID = screenViewID
+        self.eventType = type
+        self.eventName = name
+        self.eventStartTime = startTime
+        self.eventDuration = eventDuration
+        self.latitude = lat
+        self.longitude = log
+        self.dataURL = url
+        self.arguments = arguments
     }
 }

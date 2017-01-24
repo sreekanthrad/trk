@@ -136,6 +136,7 @@ public class ATTAnalytics: NSObject {
     /// Can be called manually for Manual event tracking
     /// **customArguments** is used when an object requires to trigger event with dynamic values
     public func registerForTracking(appSpecificKeyword keyword:String?,
+                                    dataURL url:String?,
                                     customArguments arguments:Dictionary<String, AnyObject>?) -> Void {
         
         self.trackConfigurationForClass(aClass:nil,
@@ -143,6 +144,11 @@ public class ATTAnalytics: NSObject {
                                         ofStateType:.Event,
                                         havingAppSpecificKeyword:keyword,
                                         withCustomArguments:arguments)
+        
+        ATTMiddlewareSchemaManager.manager.createCustomEvent(eventName: keyword,
+                                                             eventStartTime: Date(),
+                                                             dataURL: url,
+                                                             customArguments: arguments)
     }
     
     /// Used to receive the crashlog events

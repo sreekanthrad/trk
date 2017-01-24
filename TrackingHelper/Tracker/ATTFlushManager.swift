@@ -29,6 +29,7 @@ class ATTFlushManager: NSObject {
                              repeats: true)
     }
     
+    // MARK: - End point of Syncing
     func flushDataInInterval() -> Void {
         let flushableData = self.delegate?.flushData() as Array<AnyObject>?
         if flushableData != nil {
@@ -45,6 +46,7 @@ class ATTFlushManager: NSObject {
         }
     }
     
+    // MARK: - Formatting the schema
     func formattedSchemaFromArray(eventsArray:Array<AnyObject>?) -> Dictionary<String, AnyObject>? {
         var resultArray = Array<AnyObject>()
         if (eventsArray?.count)! > 0 {
@@ -57,18 +59,21 @@ class ATTFlushManager: NSObject {
                         
                         let eType = (eachEvent.eventType != nil) ? eachEvent.eventType : ""
                         let eName = (eachEvent.eventName != nil) ? eachEvent.eventName : ""
+                        let dURL = (eachEvent.dataURL != nil) ? eachEvent.dataURL : ""
                         let eStrtTim = (eachEvent.eventStartTime != nil) ? eachEvent.eventStartTime : Date()
                         let eDur = (eachEvent.eventDuration != nil) ? eachEvent.eventDuration : 0
                         let lat = (eachEvent.latitude != nil) ? eachEvent.latitude : 0
                         let log = (eachEvent.longitude != nil) ? eachEvent.longitude : 0
                         let location = ["latitude":lat, "longitude":log]
+                        let customParam = (eachEvent.arguments != nil) ? eachEvent.arguments : Dictionary<String, AnyObject>()
                         
                         let eventDictionary = ["eventType":(eType as AnyObject?)!,
-                                               "dataURL":"" as AnyObject,
+                                               "dataURL":(dURL as AnyObject?)!,
                                                "eventName":(eName as AnyObject?)!,
                                                "eventStartTime":((eStrtTim?.timeIntervalSince1970)! * 1000 as AnyObject?)!,
                                                "eventDuration":(eDur as AnyObject?)!,
-                                               "location":location as AnyObject] as [String : AnyObject]
+                                               "location":location as AnyObject,
+                                               "customParam":customParam as AnyObject] as [String : AnyObject]
                         
                         screenEvents.append(eventDictionary as AnyObject)
                     }

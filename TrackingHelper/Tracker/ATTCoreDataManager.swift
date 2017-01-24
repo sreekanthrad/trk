@@ -108,7 +108,15 @@ class ATTCoreDataManager: NSObject {
                 anEvent.setValue(event?.eventDuration,  forKeyPath: "eventDuration")
                 anEvent.setValue(event?.latitude,       forKeyPath: "latitude")
                 anEvent.setValue(event?.longitude,      forKeyPath: "longitude")
-                anEvent.setValue("",                    forKeyPath: "dataURL")
+                
+                if event?.dataURL != nil {
+                    anEvent.setValue(event?.dataURL, forKeyPath: "dataURL")
+                }
+                
+                if event?.arguments != nil {
+                    let data = try? JSONSerialization.data(withJSONObject: (event?.arguments)!, options: [])
+                    anEvent.setValue(data, forKeyPath: "customParam")
+                }
                 
                 self.saveContext()
                 

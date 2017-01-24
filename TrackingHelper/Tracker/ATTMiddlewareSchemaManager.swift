@@ -71,18 +71,7 @@ class ATTMiddlewareSchemaManager: NSObject {
     }
     
     // MARK: Button action events
-    func createIBActionEvent(eventName:String?, eventStartTime startTime:Date?) -> Void {
-        /*let currentScreenObject:ATTScreenViewModel = self.syncableSchemaArray.last as! ATTScreenViewModel
-        if currentScreenObject.screenEventsArray == nil {
-            currentScreenObject.screenEventsArray = Array()
-        }
-        
-        currentScreenObject.screenEventsArray?.append(ATTEventModel(eventType:"ButtonAction",
-                                                                    eventName:eventName,
-                                                                    eventStartTime:startTime,
-                                                                    eventDuration:0,
-                                                                    latitude:self.locationManager?.latitude,
-                                                                    longitude:self.locationManager?.longitude))*/
+    func createIBActionEvent(eventName:String?, eventStartTime startTime:Date?) -> Void {        
         let newEvent = ATTEventModel(screenViewID:self.screenViewModel?.screenViewID,
                                      eventType:"ButtonAction",
                                      eventName:eventName,
@@ -90,6 +79,23 @@ class ATTMiddlewareSchemaManager: NSObject {
                                      eventDuration:0,
                                      latitude:self.locationManager?.latitude,
                                      longitude:self.locationManager?.longitude)
+        self.coreDataManager.createEvents(event: newEvent)
+    }
+    
+    // MARK: Button action events
+    func createCustomEvent(eventName:String?,
+                           eventStartTime startTime:Date?,
+                           dataURL:String?,
+                           customArguments arguments:Dictionary<String, AnyObject>?) -> Void {
+        let newEvent = ATTEventModel(screenViewID:self.screenViewModel?.screenViewID,
+                                     eventType:"ButtonAction",
+                                     eventName:eventName,
+                                     eventStartTime:startTime,
+                                     eventDuration:0,
+                                     latitude:self.locationManager?.latitude,
+                                     longitude:self.locationManager?.longitude,
+                                     dataURL:dataURL,
+                                     customArguments:arguments)
         self.coreDataManager.createEvents(event: newEvent)
     }
 }
@@ -112,6 +118,7 @@ extension ATTMiddlewareSchemaManager:ATTFlushManagerDelegate {
             let screenEvents = self.coreDataManager.fetchEventWithScreenID(screenID: screenModel.screenViewID)! as Array<AnyObject>
             
             var eventsArray = Array<AnyObject>()
+            var customParam:Dictionary<String, AnyObject>?
             for eachEvent in screenEvents {
                 let eventModel = ATTEventModel(screenViewID:screenModel.screenViewID,
                                                eventType:eachEvent.value(forKeyPath: "eventType") as? String,
@@ -120,6 +127,14 @@ extension ATTMiddlewareSchemaManager:ATTFlushManagerDelegate {
                                                eventDuration:eachEvent.value(forKeyPath: "eventDuration") as? Double,
                                                latitude:eachEvent.value(forKeyPath: "latitude") as? CLLocationDegrees,
                                                longitude:eachEvent.value(forKeyPath: "longitude") as? CLLocationDegrees)
+                
+                if eachEvent.value(forKeyPath: "customParam") != nil {
+                    customParam = try? JSONSerialization.jsonObject(with: eachEvent.value(forKeyPath: "customParam")! as! Data, options: []) as! Dictionary<String, AnyObject>
+                    eventModel.arguments = customParam
+                }
+                
+                eventModel.dataURL = eachEvent.value(forKeyPath: "dataURL") as! String?
+                
                 eventsArray.append(eventModel)
             }
             
