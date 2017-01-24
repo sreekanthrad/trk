@@ -1,11 +1,53 @@
-# TrackingHelper Usage Example #
-
-This sample project includes a very basic level usage of TrackingHelper library to track different events.
-
-Example includes
-
-1. Automatic screen change tracking
-2. Automatic button events
-3. Reporting a crash event
-
-More more details into the Library, please do visit https://bitbucket.org/sreekanthradhakrishnan/trackinghelper
+        {"baseInfo": {
+              "appInfo":{
+                  "bundleID":"com.attinad",
+                  "bundleName":"",
+                  "bundleVersion":"1.0"
+              },
+              "deviceInfo":{
+                  "deviceID":"AC989193-9E95-44B8-825D-14D5789C24DC",
+                  "platform":"iOS",
+                  "version":"8.1"
+              },
+              "libInfo":{
+                  "libVersion":"0.0.1"
+              }
+        },
+        "screenViews":[{
+            "screenViewID":"",
+            "presentScreen":"Details screen",
+            "previousScreen":"Listing screen",
+            "screenWatchedTime":"Timestamp",
+            "screenWatchDuration":"milliseconds",
+            "onScreenActions":[{
+                  "eventType":"ButtonAction",
+                  "eventName":"viewSeriesList",
+                  "eventStartTime":"timestamp",
+                  "eventDuration":"milliseconds",
+                  "dataURL":"",
+                  "customParam":{
+                      "anykey":"anyvalue"
+                  },
+                  "location":{
+                      "latitude":"0",
+                      "longitude":"0"
+                  }
+            },{
+                "eventType":"DataLoad",
+                "eventName":"loadSeriesList",
+                "eventStartTime":"timestamp",
+                "eventDuration":"milliseconds",
+                "dataURL":"",
+                "customParam":{
+                    "anykey":"anyvalue"
+                },
+                "location":{
+                    "latitude":"0",
+                    "longitude":"0"
+                }
+        }],
+        "location":{
+            "latitude":"0",
+            "longitude":"0"
+        }
+      }]}
