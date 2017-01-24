@@ -32,20 +32,16 @@ class ATTCoreDataManager: NSObject {
                 
                 let aScreen = NSManagedObject(entity: entity, insertInto: managedContext)
                 
-                aScreen.setValue(screenViewModel?.screenViewID, forKeyPath: "screenViewID")
-                aScreen.setValue(screenViewModel?.previousScreenName, forKeyPath: "previousScreen")
-                aScreen.setValue(screenViewModel?.screenName, forKeyPath: "presentScreen")
-                aScreen.setValue(screenViewModel?.screeViewDuration, forKeyPath: "screenWatchDuration")
-                aScreen.setValue(screenViewModel?.screenViewBeginTime, forKeyPath: "screenWatchedTime")
-                aScreen.setValue(screenViewModel?.latitude, forKeyPath: "latitude")
-                aScreen.setValue(screenViewModel?.longitude, forKeyPath: "longitude")
-                aScreen.setValue(false, forKeyPath: "syncStatus")
+                aScreen.setValue(screenViewModel?.screenViewID,         forKeyPath: "screenViewID")
+                aScreen.setValue(screenViewModel?.previousScreenName,   forKeyPath: "previousScreen")
+                aScreen.setValue(screenViewModel?.screenName,           forKeyPath: "presentScreen")
+                aScreen.setValue(screenViewModel?.screeViewDuration,    forKeyPath: "screenWatchDuration")
+                aScreen.setValue(screenViewModel?.screenViewBeginTime,  forKeyPath: "screenWatchedTime")
+                aScreen.setValue(screenViewModel?.latitude,             forKeyPath: "latitude")
+                aScreen.setValue(screenViewModel?.longitude,            forKeyPath: "longitude")
+                aScreen.setValue(false,                                 forKeyPath: "syncStatus")
                 
-                do {
-                    try managedContext.save()                    
-                } catch let error as NSError {
-                    print("Could not save. \(error), \(error.userInfo)")
-                }
+                self.saveContext()
                 
             } else {
                 // Fallback on earlier versions
@@ -67,11 +63,7 @@ class ATTCoreDataManager: NSObject {
                     managedObject.setValue(screenViewModel?.previousScreenName, forKey: "previousScreen")
                     managedObject.setValue(screenViewModel?.screeViewDuration, forKey: "screenWatchDuration")
                     
-                    do {
-                        try managedContext.save()
-                    } catch let error as NSError {
-                        print("Could not save. \(error), \(error.userInfo)")
-                    }
+                    self.saveContext()
                 }
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
@@ -109,20 +101,16 @@ class ATTCoreDataManager: NSObject {
                 
                 let anEvent = NSManagedObject(entity: entity, insertInto: managedContext)
                 
-                anEvent.setValue(event?.screenViewID, forKeyPath: "screenViewID")
-                anEvent.setValue(event?.eventType, forKeyPath: "eventType")
+                anEvent.setValue(event?.screenViewID,   forKeyPath: "screenViewID")
+                anEvent.setValue(event?.eventType,      forKeyPath: "eventType")
                 anEvent.setValue(event?.eventStartTime, forKeyPath: "eventStartTime")
-                anEvent.setValue(event?.eventName, forKeyPath: "eventName")
-                anEvent.setValue(event?.eventDuration, forKeyPath: "eventDuration")
-                anEvent.setValue(event?.latitude, forKeyPath: "latitude")
-                anEvent.setValue(event?.longitude, forKeyPath: "longitude")
-                anEvent.setValue("", forKeyPath: "dataURL")
+                anEvent.setValue(event?.eventName,      forKeyPath: "eventName")
+                anEvent.setValue(event?.eventDuration,  forKeyPath: "eventDuration")
+                anEvent.setValue(event?.latitude,       forKeyPath: "latitude")
+                anEvent.setValue(event?.longitude,      forKeyPath: "longitude")
+                anEvent.setValue("",                    forKeyPath: "dataURL")
                 
-                do {
-                    try managedContext.save()
-                } catch let error as NSError {
-                    print("Could not save. \(error), \(error.userInfo)")
-                }
+                self.saveContext()
                 
             } else {
                 // Fallback on earlier versions
@@ -147,6 +135,36 @@ class ATTCoreDataManager: NSObject {
         }
         
         return nil
+    }
+    
+    // MARK: Call back sync
+    func removeSyncedObjects(screenIDArray:Array<String?>) -> Void {
+        for eachScreenID in screenIDArray {
+            self.deleteSyncableObjects(screenID: eachScreenID, forEntity: "Screen")
+            self.deleteSyncableObjects(screenID: eachScreenID, forEntity: "Events")
+            
+            self.saveContext()
+        }
+    }
+    
+    func deleteSyncableObjects(screenID:String?, forEntity entityName:String?) -> Void {
+        if #available(iOS 10.0, *) {
+            let managedContext = self.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName!)
+            fetchRequest.predicate = NSPredicate(format: "screenViewID = %@", screenID!)
+            do {
+                let results = try managedContext.fetch(fetchRequest) as Array<AnyObject>
+                if (results.count) > 0 {
+                    for eachScreen in results {
+                        managedContext.delete(eachScreen as! NSManagedObject)
+                    }
+                }
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     // MARK: - Core Data Saving support    
