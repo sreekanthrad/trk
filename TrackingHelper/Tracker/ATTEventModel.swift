@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 class ATTEventModel: NSObject {
+    public var screenViewID:String?
     public var eventType:String?
     public var eventName:String?
     public var eventStartTime:Date?
@@ -21,7 +22,8 @@ class ATTEventModel: NSObject {
         super.init()
     }
     
-    convenience init(eventType:String?,
+    convenience init(screenViewID:String?,
+                     eventType type:String?,
                      eventName name:String?,
                      eventStartTime startTime:Date?,
                      eventDuration:Double?,
@@ -29,7 +31,8 @@ class ATTEventModel: NSObject {
                      longitude log:CLLocationDegrees?) {
         self.init()
         
-        self.eventType = eventType
+        self.screenViewID = screenViewID
+        self.eventType = type
         self.eventName = name
         self.eventStartTime = startTime
         self.eventDuration = eventDuration

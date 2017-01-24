@@ -35,72 +35,76 @@ class ATTFlushManager: NSObject {
             let schema = self.formattedSchemaFromArray(eventsArray: flushableData)
             print("\(schema)")
             
-            let requestPath = "saveAnalyticData"
+            /*let requestPath = "saveAnalyticData"
             let request = ContainerRequest(requestURL:requestPath,
                                            requestParams:schema as Dictionary<String, AnyObject>?,
                                            requestPriority: .Normal)
             Container.container.post(containerRequest: request, onCompletion: { (response) in
-                print("\(response?.responseDictionary)")
-            })
+                //print("\(response?.responseDictionary)")
+            })*/
         }
     }
     
     func formattedSchemaFromArray(eventsArray:Array<AnyObject>?) -> Dictionary<String, AnyObject>? {
         var resultArray = Array<AnyObject>()
-        for screenViewIndex in 0...(eventsArray?.count)! - 1 {
-            let eachScreen:ATTScreenViewModel = eventsArray![screenViewIndex] as! ATTScreenViewModel
-            var screenEvents = Array<AnyObject>()
-            if eachScreen.screenEventsArray != nil {
-                for eventsIndex in 0...(eachScreen.screenEventsArray?.count)! - 1 {
-                    let eachEvent:ATTEventModel = eachScreen.screenEventsArray?[eventsIndex] as! ATTEventModel
-                    
-                    let eType = (eachEvent.eventType != nil) ? eachEvent.eventType : ""
-                    let eName = (eachEvent.eventName != nil) ? eachEvent.eventName : ""
-                    let eStrtTim = (eachEvent.eventStartTime != nil) ? eachEvent.eventStartTime : Date()
-                    let eDur = (eachEvent.eventDuration != nil) ? eachEvent.eventDuration : 0
-                    let lat = (eachEvent.latitude != nil) ? eachEvent.latitude : 0
-                    let log = (eachEvent.longitude != nil) ? eachEvent.longitude : 0
-                    let location = ["latitude":lat, "longitude":log]
-                    
-                    let eventDictionary = ["eventType":(eType as AnyObject?)!,
-                                           "dataURL":"" as AnyObject,
-                                           "eventName":(eName as AnyObject?)!,
-                                           "eventStartTime":((eStrtTim?.timeIntervalSince1970)! * 1000 as AnyObject?)!,
-                                           "eventDuration":(eDur as AnyObject?)!,
-                                           "location":location as AnyObject] as [String : AnyObject]
-                    
-                    screenEvents.append(eventDictionary as AnyObject)
+        if (eventsArray?.count)! > 0 {
+            for screenViewIndex in 0...(eventsArray?.count)! - 1 {
+                let eachScreen:ATTScreenViewModel = eventsArray![screenViewIndex] as! ATTScreenViewModel
+                var screenEvents = Array<AnyObject>()
+                if eachScreen.screenEventsArray != nil && (eachScreen.screenEventsArray?.count)! > 0 {
+                    for eventsIndex in 0...(eachScreen.screenEventsArray?.count)! - 1 {
+                        let eachEvent:ATTEventModel = eachScreen.screenEventsArray?[eventsIndex] as! ATTEventModel
+                        
+                        let eType = (eachEvent.eventType != nil) ? eachEvent.eventType : ""
+                        let eName = (eachEvent.eventName != nil) ? eachEvent.eventName : ""
+                        let eStrtTim = (eachEvent.eventStartTime != nil) ? eachEvent.eventStartTime : Date()
+                        let eDur = (eachEvent.eventDuration != nil) ? eachEvent.eventDuration : 0
+                        let lat = (eachEvent.latitude != nil) ? eachEvent.latitude : 0
+                        let log = (eachEvent.longitude != nil) ? eachEvent.longitude : 0
+                        let location = ["latitude":lat, "longitude":log]
+                        
+                        let eventDictionary = ["eventType":(eType as AnyObject?)!,
+                                               "dataURL":"" as AnyObject,
+                                               "eventName":(eName as AnyObject?)!,
+                                               "eventStartTime":((eStrtTim?.timeIntervalSince1970)! * 1000 as AnyObject?)!,
+                                               "eventDuration":(eDur as AnyObject?)!,
+                                               "location":location as AnyObject] as [String : AnyObject]
+                        
+                        screenEvents.append(eventDictionary as AnyObject)
+                    }
                 }
+                
+                let sID = (eachScreen.screenViewID != nil) ? eachScreen.screenViewID : ""
+                let sName = (eachScreen.screenName != nil) ? eachScreen.screenName : ""
+                let sPName = (eachScreen.previousScreenName != nil) ? eachScreen.previousScreenName : ""
+                let sBTime = (eachScreen.screenViewBeginTime != nil) ? eachScreen.screenViewBeginTime : Date()
+                let sVDur = (eachScreen.screeViewDuration != nil) ? eachScreen.screeViewDuration : 0
+                let lat = (eachScreen.latitude != nil) ? eachScreen.latitude : 0
+                let log = (eachScreen.longitude != nil) ? eachScreen.longitude : 0
+                let location = ["latitude":lat, "longitude":log]
+                
+                let screenViewDictionary:Dictionary<String, AnyObject> = ["screenViewID":(sID as AnyObject?)!,
+                                                                          "presentScreen":(sName as AnyObject?)!,
+                                                                          "previousScreen":(sPName as AnyObject?)!,
+                                                                          "screenWatchedTime":((sBTime?.timeIntervalSince1970)! * 1000 as AnyObject?)!,
+                                                                          "screenWatchDuration":(sVDur as AnyObject?)!,
+                                                                          "onScreenActions":screenEvents as AnyObject,
+                                                                          "location":location as AnyObject]
+                
+                resultArray.append(screenViewDictionary as AnyObject)
             }
             
-            let sID = (eachScreen.screenViewID != nil) ? eachScreen.screenViewID : ""
-            let sName = (eachScreen.screenName != nil) ? eachScreen.screenName : ""
-            let sPName = (eachScreen.previousScreenName != nil) ? eachScreen.previousScreenName : ""
-            let sBTime = (eachScreen.screenViewBeginTime != nil) ? eachScreen.screenViewBeginTime : Date()
-            let sVDur = (eachScreen.screeViewDuration != nil) ? eachScreen.screeViewDuration : 0
-            let lat = (eachScreen.latitude != nil) ? eachScreen.latitude : 0
-            let log = (eachScreen.longitude != nil) ? eachScreen.longitude : 0
-            let location = ["latitude":lat, "longitude":log]
+            let baseInfo = ["libInfo":self.libInfo() as AnyObject,
+                            "appInfo":self.appInfo() as AnyObject,
+                            "deviceInfo":self.deviceInfo() as AnyObject]
             
-            let screenViewDictionary:Dictionary<String, AnyObject> = ["screenViewID":(sID as AnyObject?)!,
-                                   "presentScreen":(sName as AnyObject?)!,
-                                   "previousScreen":(sPName as AnyObject?)!,
-                                   "screenWatchedTime":((sBTime?.timeIntervalSince1970)! * 1000 as AnyObject?)!,
-                                   "screenWatchDuration":(sVDur as AnyObject?)!,
-                                   "onScreenActions":screenEvents as AnyObject,
-                                   "location":location as AnyObject]
+            let schema = ["baseInfo":baseInfo as AnyObject,
+                          "screenViews":resultArray] as [String : Any]
             
-            resultArray.append(screenViewDictionary as AnyObject)
+            return schema as Dictionary<String, AnyObject>?
         }
        
-        let baseInfo = ["libInfo":self.libInfo() as AnyObject,
-                        "appInfo":self.appInfo() as AnyObject,
-                        "deviceInfo":self.deviceInfo() as AnyObject]
-        
-        let schema = ["baseInfo":baseInfo as AnyObject,
-                      "screenViews":resultArray] as [String : Any]
-        
-        return schema as Dictionary<String, AnyObject>?
+        return nil
     }
     
     private func appInfo() -> Dictionary<String, AnyObject>? {

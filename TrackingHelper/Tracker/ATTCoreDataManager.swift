@@ -22,6 +22,7 @@ class ATTCoreDataManager: NSObject {
         return container
     }()
     
+    // MARK: Screen view methods
     func createScreenView(screenViewModel:ATTScreenViewModel?) -> Void {
         if screenViewModel != nil {
             if #available(iOS 10.0, *) {
@@ -36,6 +37,8 @@ class ATTCoreDataManager: NSObject {
                 aScreen.setValue(screenViewModel?.screenName, forKeyPath: "presentScreen")
                 aScreen.setValue(screenViewModel?.screeViewDuration, forKeyPath: "screenWatchDuration")
                 aScreen.setValue(screenViewModel?.screenViewBeginTime, forKeyPath: "screenWatchedTime")
+                aScreen.setValue(screenViewModel?.latitude, forKeyPath: "latitude")
+                aScreen.setValue(screenViewModel?.longitude, forKeyPath: "longitude")
                 aScreen.setValue(false, forKeyPath: "syncStatus")
                 
                 do {
@@ -45,8 +48,37 @@ class ATTCoreDataManager: NSObject {
                 }
                 
             } else {
-                
+                // Fallback on earlier versions
             }
+        }
+    }
+    
+    func updateScreenView(screenViewModel:ATTScreenViewModel?) -> Void {
+        if #available(iOS 10.0, *) {
+            let managedContext = self.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Screen")
+            
+            fetchRequest.predicate = NSPredicate(format: "screenViewID = %@", (screenViewModel?.screenViewID)!)
+            
+            do {
+                let results = try managedContext.fetch(fetchRequest) as Array<AnyObject>
+                if (results.count) > 0 {
+                    let managedObject = results[0]
+                    managedObject.setValue(screenViewModel?.previousScreenName, forKey: "previousScreen")
+                    managedObject.setValue(screenViewModel?.screeViewDuration, forKey: "screenWatchDuration")
+                    
+                    do {
+                        try managedContext.save()
+                    } catch let error as NSError {
+                        print("Could not save. \(error), \(error.userInfo)")
+                    }
+                }
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+            
+        } else {
+            // Fallback on earlier versions
         }
     }
     
@@ -62,7 +94,59 @@ class ATTCoreDataManager: NSObject {
             }
         } else {
             // Fallback on earlier versions
+            return nil
         }
+        
+        return nil
+    }
+    
+    func createEvents(event:ATTEventModel?) -> Void {
+        if event != nil {
+            if #available(iOS 10.0, *) {
+                let managedContext = self.persistentContainer.viewContext
+                let entity = NSEntityDescription.entity(forEntityName: "Events",
+                                                        in: managedContext)!
+                
+                let anEvent = NSManagedObject(entity: entity, insertInto: managedContext)
+                
+                anEvent.setValue(event?.screenViewID, forKeyPath: "screenViewID")
+                anEvent.setValue(event?.eventType, forKeyPath: "eventType")
+                anEvent.setValue(event?.eventStartTime, forKeyPath: "eventStartTime")
+                anEvent.setValue(event?.eventName, forKeyPath: "eventName")
+                anEvent.setValue(event?.eventDuration, forKeyPath: "eventDuration")
+                anEvent.setValue(event?.latitude, forKeyPath: "latitude")
+                anEvent.setValue(event?.longitude, forKeyPath: "longitude")
+                anEvent.setValue("", forKeyPath: "dataURL")
+                
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
+                
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    
+    func fetchEventWithScreenID(screenID:String?) -> Array<AnyObject>? {
+        if #available(iOS 10.0, *) {
+            let managedContext = self.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Events")
+            fetchRequest.predicate = NSPredicate(format: "screenViewID = %@", screenID!)
+            do {
+                let data:Array<AnyObject> = try managedContext.fetch(fetchRequest)
+                return data
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        } else {
+            // Fallback on earlier versions
+            return nil
+        }
+        
+        return nil
     }
     
     // MARK: - Core Data Saving support    
