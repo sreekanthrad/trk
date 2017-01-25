@@ -23,13 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func configureTrackingHelper() -> Void {
         
-        let configFilePath = Bundle.main.path(forResource: "TrackingPattern", ofType: "plist")
-        ATTAnalytics.helper.beginTracking(pathForConfigFile: configFilePath,
+        //let configFilePath = Bundle.main.path(forResource: "TrackingPattern", ofType: "plist")
+        ATTAnalytics.helper.beginTracking(pathForConfigFile: "",
                                           stateTrackingType: "Auto",
                                           methodTrackingType: "Auto")
         
         
-        self.listenenr = NotificationListener()
+       // self.listenenr = NotificationListener()
         
         //******** Other Different Usages *********//
         // Use any of the below

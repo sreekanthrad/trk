@@ -22,14 +22,15 @@ class ATTFlushManager: NSObject {
     convenience init(flushInterval:Double?, delegate:ATTFlushManagerDelegate?) {
         self.init()
         self.delegate = delegate
-        Timer.scheduledTimer(timeInterval: 5,
-                             target: self,
-                             selector: #selector(ATTFlushManager.flushDataInInterval),
-                             userInfo: nil,
-                             repeats: true)
+        Timer.scheduledTimer(timeInterval:5,
+                             target:self,
+                             selector:#selector(ATTFlushManager.flushDataInInterval),
+                             userInfo:nil,
+                             repeats:true)
     }
     
     // MARK: - End point of Syncing
+    // API calls and response handling
     func flushDataInInterval() -> Void {
         let flushableData = self.delegate?.flushData() as Array<AnyObject>?
         if flushableData != nil {
