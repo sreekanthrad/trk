@@ -64,12 +64,6 @@ class ATTMiddlewareSchemaManager: NSObject {
         self.coreDataManager.updateScreenView(screenViewModel: self.screenViewModel)
     }
     
-    func populateSchemaArray() -> Void {
-        /*if self.screenViewModel != nil {
-            self.syncableSchemaArray.append(self.screenViewModel!)
-        }*/
-    }
-    
     // MARK: Button action events
     func createIBActionEvent(eventName:String?, eventStartTime startTime:Date?) -> Void {        
         let newEvent = ATTEventModel(screenViewID:self.screenViewModel?.screenViewID,
@@ -88,7 +82,7 @@ class ATTMiddlewareSchemaManager: NSObject {
                            dataURL:String?,
                            customArguments arguments:Dictionary<String, AnyObject>?) -> Void {
         let newEvent = ATTEventModel(screenViewID:self.screenViewModel?.screenViewID,
-                                     eventType:"ButtonAction",
+                                     eventType:"CustomEvent",
                                      eventName:eventName,
                                      eventStartTime:startTime,
                                      eventDuration:0,

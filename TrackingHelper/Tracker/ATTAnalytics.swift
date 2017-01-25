@@ -420,8 +420,7 @@ public class ATTAnalytics: NSObject {
         if previousScreen == nil { previousScreen = "" }
         
         ATTMiddlewareSchemaManager.manager.updateScreenCloseDetails(previousScreen: previousScreen,
-                                                                    screenViewDuration: self.screenViewDuration)
-        ATTMiddlewareSchemaManager.manager.populateSchemaArray()
+                                                                    screenViewDuration: self.screenViewDuration)        
     }
     
     /////////////////////////////////////////////////////////////////////////////////////
