@@ -74,7 +74,8 @@ class Container: NSObject {
         
         let data = try? JSONSerialization.data(withJSONObject: (containerRequest?.requestParams)!, options: [])        
         urlRequest.httpBody = data!
-        
+        let jsonString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)! as String
+        print(" Syncable Data: \(jsonString)")
         self.completion = onCompletion
         let operationID = self.timeStamp
         let operation = ContainerOperation(request: urlRequest,

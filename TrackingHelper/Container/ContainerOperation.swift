@@ -114,6 +114,9 @@ class ContainerOperation:Operation {
                     self.cacheData(data: responseData as NSData?, dataSourcePath: request.url?.absoluteString)
                 }
                 
+                let jsonString = NSString(data: responseData, encoding: String.Encoding.utf8.rawValue)! as String
+                print(" Synced Data: \(jsonString)")
+                
                 let responseDictionary = self.dictionaryFromData(responseData: responseData as NSData?) as? Dictionary<String, AnyObject>
                 
                 let response = ContainerResponse(parsedResponse: responseDictionary,

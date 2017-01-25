@@ -138,4 +138,8 @@ extension ATTMiddlewareSchemaManager:ATTFlushManagerDelegate {
         
         return self.syncableSchemaArray
     }
+    
+    func removedSyncedObjects(screenIDArray:Array<String>?) -> Void {
+        self.coreDataManager.removeSyncedObjects(screenIDArray: screenIDArray!)
+    }
 }
