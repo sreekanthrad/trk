@@ -1,3 +1,5 @@
+# Request Schema #
+
         {"baseInfo": {
               "appInfo":{
                   "bundleID":"com.attinad",
@@ -51,3 +53,13 @@
             "longitude":"0"
         }
       }]}
+
+# Response Schema #
+
+        {"syncedObjects":[
+                {"screenViewID":"id1"},
+                {"screenViewID":"id2"},
+                {"screenViewID":"id3"}
+        ],
+        "lastSync":"date"
+        }
