@@ -115,6 +115,7 @@ class ContainerOperation:Operation {
                 }
                 
                 let responseDictionary = self.dictionaryFromData(responseData: responseData as NSData?) as? Dictionary<String, AnyObject>
+                
                 let response = ContainerResponse(parsedResponse: responseDictionary,
                                                  error: error as Error?,
                                                  response: httpResponse)

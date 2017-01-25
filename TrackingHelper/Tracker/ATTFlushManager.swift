@@ -34,15 +34,13 @@ class ATTFlushManager: NSObject {
         let flushableData = self.delegate?.flushData() as Array<AnyObject>?
         if flushableData != nil {
             let schema = self.formattedSchemaFromArray(eventsArray: flushableData)
-            print("\(schema)")
-            
-            /*let requestPath = "saveAnalyticData"
+            let requestPath = "saveAnalyticData"
             let request = ContainerRequest(requestURL:requestPath,
                                            requestParams:schema as Dictionary<String, AnyObject>?,
                                            requestPriority: .Normal)
             Container.container.post(containerRequest: request, onCompletion: { (response) in
-                //print("\(response?.responseDictionary)")
-            })*/
+                print("\(response?.responseDictionary)")
+            })
         }
     }
     

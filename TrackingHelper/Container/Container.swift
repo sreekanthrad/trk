@@ -70,8 +70,10 @@ class Container: NSObject {
         let urlRequest = self.formulateRequestFromContainerRequest(containerRequest: containerRequest)
         
         urlRequest.httpMethod = self.stringConvertedRequestMethod(method:.Post)
-        urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: (containerRequest?.requestParams)!, options: [])
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let data = try? JSONSerialization.data(withJSONObject: (containerRequest?.requestParams)!, options: [])        
+        urlRequest.httpBody = data!
         
         self.completion = onCompletion
         let operationID = self.timeStamp
