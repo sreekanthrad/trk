@@ -25,6 +25,7 @@
 		F913A8741E3631D600017F38 /* ATTCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8731E3631D600017F38 /* ATTCoreDataManager.swift */; };
 		F913A8971E36326300017F38 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F913A8961E36326300017F38 /* CoreData.framework */; };
 		F913A89A1E3633AF00017F38 /* ATTDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F913A8981E3633AF00017F38 /* ATTDB.xcdatamodeld */; };
+		F9374F3A1E3B0D31007B626E /* ATTCustomEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374F391E3B0D31007B626E /* ATTCustomEvent.swift */; };
 		F93D17251E0B9A2B003A2901 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93D17241E0B9A2B003A2901 /* BaseViewController.swift */; };
 		F93D17271E0BA237003A2901 /* NotificationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93D17261E0BA237003A2901 /* NotificationListener.swift */; };
 		F97ECEC71E2F6C350089038F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97ECEC61E2F6C350089038F /* CoreLocation.framework */; };
@@ -56,6 +57,7 @@
 		F913A8731E3631D600017F38 /* ATTCoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTCoreDataManager.swift; path = Tracker/ATTCoreDataManager.swift; sourceTree = "<group>"; };
 		F913A8961E36326300017F38 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F913A8991E3633AF00017F38 /* ATTDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATTDB.xcdatamodel; sourceTree = "<group>"; };
+		F9374F391E3B0D31007B626E /* ATTCustomEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTCustomEvent.swift; path = Tracker/ATTCustomEvent.swift; sourceTree = "<group>"; };
 		F93D17241E0B9A2B003A2901 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F93D17261E0BA237003A2901 /* NotificationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationListener.swift; path = Tracker/NotificationListener.swift; sourceTree = "<group>"; };
 		F97ECEC61E2F6C350089038F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -150,6 +152,7 @@
 				F9F7FDC51DE6CB25000E3ED6 /* ATTConfigParser.swift */,
 				F913A8731E3631D600017F38 /* ATTCoreDataManager.swift */,
 				F913A8981E3633AF00017F38 /* ATTDB.xcdatamodeld */,
+				F9374F391E3B0D31007B626E /* ATTCustomEvent.swift */,
 			);
 			name = Tracker;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				F90ACEF21DD1D9EC006671FA /* ViewController.swift in Sources */,
 				F9B986CD1E2CD93600E61414 /* ATTAnalytics.swift in Sources */,
 				F93D17251E0B9A2B003A2901 /* BaseViewController.swift in Sources */,
+				F9374F3A1E3B0D31007B626E /* ATTCustomEvent.swift in Sources */,
 				F9F7FDC71DE6CB25000E3ED6 /* ATTConfigConstants.swift in Sources */,
 				F913A89A1E3633AF00017F38 /* ATTDB.xcdatamodeld in Sources */,
 				F913A8681E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift in Sources */,

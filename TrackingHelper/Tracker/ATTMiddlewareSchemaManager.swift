@@ -80,12 +80,13 @@ class ATTMiddlewareSchemaManager: NSObject {
     func createCustomEvent(eventName:String?,
                            eventStartTime startTime:Date?,
                            dataURL:String?,
-                           customArguments arguments:Dictionary<String, AnyObject>?) -> Void {
+                           customArguments arguments:Dictionary<String, AnyObject>?,
+                           eventDuration duration:Double?) -> Void {
         let newEvent = ATTEventModel(screenViewID:self.screenViewModel?.screenViewID,
                                      eventType:"CustomEvent",
                                      eventName:eventName,
                                      eventStartTime:startTime,
-                                     eventDuration:0,
+                                     eventDuration:duration,
                                      latitude:self.locationManager?.latitude,
                                      longitude:self.locationManager?.longitude,
                                      dataURL:dataURL,

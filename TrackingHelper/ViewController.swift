@@ -31,9 +31,15 @@ class ViewController: UIViewController {
     @IBAction func customButtonClick(_ sender: Any) {
         // Explict calls with custom parameters
         let customArguments = ["param1":"value1", "param2":"value2"]
+        
+        let customEvent = ATTCustomEvent() // New instances should be created for each event
+        customEvent.eventStarted() // When a URL request raised
+        customEvent.eventFinished() // When the request receives the response
+        
         ATTAnalytics.helper.registerForTracking(appSpecificKeyword: "customButtonClick",
                                                 dataURL: "http://www.google.com",
-                                                customArguments: customArguments as Dictionary<String, AnyObject>?)
+                                                customArguments: customArguments as Dictionary<String, AnyObject>?,
+                                                eventDuration: customEvent.duration)
     }
 
     // Example of Screen change traking on pushViewControlelr
