@@ -10,7 +10,7 @@ import UIKit
 
 public class ATTCustomEvent: NSObject {
     
-    public var duration:Double?
+    var duration:Double?
     
     private var startTime:Date?
     private var endTime:Date?
