@@ -138,13 +138,18 @@ public class ATTAnalytics: NSObject {
     public func registerForTracking(appSpecificKeyword keyword:String?,
                                     dataURL url:String?,
                                     customArguments arguments:Dictionary<String, AnyObject>?,
-                                    eventDuration duration:Double?) -> Void {
+                                    customEvent event:ATTCustomEvent?) -> Void {
         
         self.trackConfigurationForClass(aClass:nil,
                                         withSelector:nil,
                                         ofStateType:.Event,
                                         havingAppSpecificKeyword:keyword,
                                         withCustomArguments:arguments)
+        
+        var duration:Double = 0.0
+        if event != nil {
+            duration = (event?.duration)!
+        }
         
         ATTMiddlewareSchemaManager.manager.createCustomEvent(eventName: keyword,
                                                              eventStartTime: Date(),

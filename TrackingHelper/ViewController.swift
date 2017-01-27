@@ -36,10 +36,11 @@ class ViewController: UIViewController {
         customEvent.eventStarted() // When a URL request raised
         customEvent.eventFinished() // When the request receives the response
         
+        // This call after the response received
         ATTAnalytics.helper.registerForTracking(appSpecificKeyword: "customButtonClick",
                                                 dataURL: "http://www.google.com",
                                                 customArguments: customArguments as Dictionary<String, AnyObject>?,
-                                                eventDuration: customEvent.duration)
+                                                customEvent: customEvent)
     }
 
     // Example of Screen change traking on pushViewControlelr
