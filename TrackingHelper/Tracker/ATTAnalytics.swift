@@ -464,7 +464,7 @@ public class ATTAnalytics: NSObject {
     }
     
     private func newScreenViewID() -> String? {
-        return self.timeStamp()
+        return "IOS\(self.timeStamp()!)"
     }
     
     private func timeStamp() -> String? {
