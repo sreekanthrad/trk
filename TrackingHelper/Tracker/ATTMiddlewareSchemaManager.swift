@@ -11,10 +11,10 @@ import CoreLocation
 
 class ATTMiddlewareSchemaManager: NSObject {
     // MARK: Private properties
-    private var screenViewModel:ATTScreenViewModel?
     private var flushManager:ATTFlushManager?
     private var screenEventsArray:Array<AnyObject>?
     
+    var screenViewModel:ATTScreenViewModel?
     var locationManager:ATTLocationManager?
     var appInfo:Dictionary<String, AnyObject>?
     
@@ -100,6 +100,10 @@ extension ATTMiddlewareSchemaManager:ATTFlushManagerDelegate {
         let allScreens = self.coreDataManager.fetchAllScreens()! as Array<AnyObject>
         
         for eachScreen in allScreens {
+            if (eachScreen.value(forKeyPath: "presentScreen") as? String) == self.screenViewModel?.screenName {
+                continue
+            }
+            
             let screenModel = ATTScreenViewModel(screenViewID:eachScreen.value(forKeyPath: "screenViewID") as? String,
                                                  screenName:eachScreen.value(forKeyPath: "presentScreen") as? String,
                                                  screenViewBeginAt:eachScreen.value(forKeyPath: "screenWatchedTime") as? Date,

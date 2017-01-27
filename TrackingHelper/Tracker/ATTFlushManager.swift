@@ -76,7 +76,7 @@ class ATTFlushManager: NSObject {
                         let eDur = (eachEvent.eventDuration != nil) ? eachEvent.eventDuration : 0
                         let lat = (eachEvent.latitude != nil) ? eachEvent.latitude : 0
                         let log = (eachEvent.longitude != nil) ? eachEvent.longitude : 0
-                        let location = ["latitude":"\(lat)", "longitude":"\(log)"]
+                        let location = ["latitude":"\(lat!)", "longitude":"\(log!)"]
                         let customParam = (eachEvent.arguments != nil) ? eachEvent.arguments : Dictionary<String, AnyObject>()
                         
                         let eventDictionary = ["eventType":(eType as AnyObject?)!,
@@ -99,7 +99,7 @@ class ATTFlushManager: NSObject {
                 let sVDur = (eachScreen.screeViewDuration != nil) ? eachScreen.screeViewDuration : 0
                 let lat = (eachScreen.latitude != nil) ? eachScreen.latitude : 0
                 let log = (eachScreen.longitude != nil) ? eachScreen.longitude : 0
-                let location = ["latitude":"\(lat)", "longitude":"\(log)"]
+                let location = ["latitude":"\(lat!)", "longitude":"\(log!)"]
                 
                 let screenViewDictionary:Dictionary<String, AnyObject> = ["screenViewID":(sID as AnyObject?)!,
                                                                           "presentScreen":(sName as AnyObject?)!,
