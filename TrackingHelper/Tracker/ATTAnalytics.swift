@@ -45,11 +45,6 @@ public class ATTAnalytics: NSObject {
     private var previousScreenViewStart:Date?
     private var screenViewEnd:Date?
     private var screenViewDuration:Double?
-    
-    private var timestamp: String {
-        return "\(NSDate().timeIntervalSince1970 * 1000)"
-    }
-    
     private let cacheDirectory = (NSSearchPathForDirectoriesInDomains(.cachesDirectory,
                                                                       .userDomainMask,
                                                                       true)[0] as String).appending("/")
@@ -80,6 +75,7 @@ public class ATTAnalytics: NSObject {
         self.screenViewStart = nil
         self.screenViewEnd = nil
         self.presentViewControllerName = nil
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: Public Methods
@@ -416,7 +412,7 @@ public class ATTAnalytics: NSObject {
     }
     
     private func createNewScreenView() -> Void {
-        self.screenViewID = self.newScreenViewID()
+        self.screenViewID = self.schemaManager.newScreenViewID()
         ATTMiddlewareSchemaManager.manager.startNewScreenViewWithScreenID(screenViewID: self.screenViewID,
                                                                           screenName: self.presentViewControllerName,
                                                                           screenViewBeginAt: self.screenViewStart)
@@ -461,14 +457,6 @@ public class ATTAnalytics: NSObject {
     func autoTrackMethodInvocationForClass(originalClass:AnyClass?, selector:Selector?) -> Void {
         self.triggerEventForTheVisibleViewController(originalClass:originalClass, selector:selector)
         ATTMiddlewareSchemaManager.manager.createIBActionEvent(eventName: "\(selector!)", eventStartTime: Date())
-    }
-    
-    private func newScreenViewID() -> String? {
-        return "\(UUID().uuidString)\(self.timeStamp()!)"
-    }
-    
-    private func timeStamp() -> String? {
-        return self.timestamp
     }
 }
 

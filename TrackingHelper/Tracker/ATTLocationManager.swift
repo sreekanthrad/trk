@@ -15,6 +15,10 @@ class ATTLocationManager: NSObject {
     var longitude: CLLocationDegrees?
     var authorizedLocationTracking:Bool?
     
+    deinit {
+        
+    }
+    
     override init() {
         super.init()
         self.locationManager = CLLocationManager()

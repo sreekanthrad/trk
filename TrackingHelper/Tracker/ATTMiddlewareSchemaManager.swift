@@ -17,16 +17,21 @@ class ATTMiddlewareSchemaManager: NSObject {
     var screenViewModel:ATTScreenViewModel?
     var locationManager:ATTLocationManager?
     var appInfo:Dictionary<String, AnyObject>?
+    var appLaunched:Bool?
+    var lastViewedScreen:String?
     
     // MARK: Lazy initializations
     lazy var syncableSchemaArray: Array<AnyObject> = {
         return Array()
     }()
     
-    // MARK: Lazy initializations
     lazy var coreDataManager: ATTCoreDataManager = {
         return ATTCoreDataManager()
     }()
+    
+    var timestamp: String {
+        return "\(NSDate().timeIntervalSince1970 * 1000)"
+    }
     
     // MARK: Shared object
     /// Shared Object
@@ -38,18 +43,52 @@ class ATTMiddlewareSchemaManager: NSObject {
         return Static.instance
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func startUpdatingLocations() -> Void {
         self.locationManager = ATTLocationManager()
     }
     
     func startFlushManager() -> Void {
         self.flushManager = ATTFlushManager(flushInterval:100, delegate:self)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ATTMiddlewareSchemaManager.applicationDidFinishedLaunching),
+                                               name: NSNotification.Name.UIApplicationDidFinishLaunching,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ATTMiddlewareSchemaManager.applicationDidBecomeActive),
+                                               name: NSNotification.Name.UIApplicationDidBecomeActive,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ATTMiddlewareSchemaManager.applicationDidEnterBackground),
+                                               name: NSNotification.Name.UIApplicationDidEnterBackground,
+                                               object: nil)
+    }
+    
+    func applicationDidFinishedLaunching() -> Void {
+        self.appLaunched = true
+    }
+    
+    func applicationDidEnterBackground() -> Void {
+        self.appLaunched = false
+    }
+    
+    func applicationDidBecomeActive() -> Void {
+        if self.appLaunched == false {
+            self.startNewScreenViewWithScreenID(screenViewID: self.newScreenViewID(),
+                                                screenName: self.lastViewedScreen,
+                                                screenViewBeginAt: Date())
+            self.appLaunched = false
+        }
     }
     
     // MARK: Screen view events
     func startNewScreenViewWithScreenID(screenViewID:String?,
                                         screenName name:String?,
                                         screenViewBeginAt screenViewBeginTime:Date?) -> Void {
+        self.lastViewedScreen = name
         self.screenViewModel = ATTScreenViewModel(screenViewID:screenViewID,
                                                   screenName:name,
                                                   screenViewBeginAt:screenViewBeginTime,
@@ -93,6 +132,14 @@ class ATTMiddlewareSchemaManager: NSObject {
                                      customArguments:arguments)
         self.coreDataManager.createEvents(event: newEvent)
     }
+    
+    func newScreenViewID() -> String? {
+        return "\(UUID().uuidString)\(self.timeStamp()!)"
+    }
+    
+    func timeStamp() -> String? {
+        return self.timestamp
+    }
 }
 
 extension ATTMiddlewareSchemaManager:ATTFlushManagerDelegate {
@@ -101,7 +148,8 @@ extension ATTMiddlewareSchemaManager:ATTFlushManagerDelegate {
         let allScreens = self.coreDataManager.fetchAllScreens()! as Array<AnyObject>
         
         for eachScreen in allScreens {
-            if (eachScreen.value(forKeyPath: "presentScreen") as? String) == self.screenViewModel?.screenName {
+            if (eachScreen.value(forKeyPath: "presentScreen") as? String) == self.screenViewModel?.screenName &&
+                (eachScreen.value(forKeyPath: "screenViewID") as? String) == self.screenViewModel?.screenViewID {
                 continue
             }
             
