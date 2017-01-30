@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         customEvent.eventFinished() // When the request receives the response
         
         // This call after the response received
-        ATTAnalytics.helper.registerForTracking(appSpecificKeyword: "customButtonClick",
+        ATTAnalytics.helper.registerForTracking(appSpecificKeyword: "ACustomEvent",
                                                 dataURL: "http://www.google.com",
                                                 customArguments: customArguments as Dictionary<String, AnyObject>?,
                                                 customEvent: customEvent)

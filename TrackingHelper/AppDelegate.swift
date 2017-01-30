@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func configureTrackingHelper() -> Void {
         
         //let configFilePath = Bundle.main.path(forResource: "TrackingPattern", ofType: "plist")
-        ATTAnalytics.helper.beginTracking(pathForConfigFile: "",
+        ATTAnalytics.helper.beginTracking(pathForConfigFile: nil,
                                           stateTrackingType: "Auto",
                                           methodTrackingType: "Auto")
         
