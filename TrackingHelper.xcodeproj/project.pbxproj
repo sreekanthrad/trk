@@ -27,11 +27,9 @@
 		F913A89A1E3633AF00017F38 /* ATTDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F913A8981E3633AF00017F38 /* ATTDB.xcdatamodeld */; };
 		F9374F3A1E3B0D31007B626E /* ATTCustomEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374F391E3B0D31007B626E /* ATTCustomEvent.swift */; };
 		F93D17251E0B9A2B003A2901 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93D17241E0B9A2B003A2901 /* BaseViewController.swift */; };
-		F93D17271E0BA237003A2901 /* NotificationListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93D17261E0BA237003A2901 /* NotificationListener.swift */; };
 		F97ECEC71E2F6C350089038F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97ECEC61E2F6C350089038F /* CoreLocation.framework */; };
 		F97ECECB1E2F7D3D0089038F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97ECECA1E2F7D3D0089038F /* MapKit.framework */; };
 		F9B986CD1E2CD93600E61414 /* ATTAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B986CC1E2CD93600E61414 /* ATTAnalytics.swift */; };
-		F9F7FDBD1DE6CA61000E3ED6 /* TrackingPattern.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9F7FDBB1DE6CA61000E3ED6 /* TrackingPattern.plist */; };
 		F9F7FDC71DE6CB25000E3ED6 /* ATTConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F7FDC41DE6CB25000E3ED6 /* ATTConfigConstants.swift */; };
 		F9F7FDC81DE6CB25000E3ED6 /* ATTConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F7FDC51DE6CB25000E3ED6 /* ATTConfigParser.swift */; };
 /* End PBXBuildFile section */
@@ -59,11 +57,9 @@
 		F913A8991E3633AF00017F38 /* ATTDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATTDB.xcdatamodel; sourceTree = "<group>"; };
 		F9374F391E3B0D31007B626E /* ATTCustomEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTCustomEvent.swift; path = Tracker/ATTCustomEvent.swift; sourceTree = "<group>"; };
 		F93D17241E0B9A2B003A2901 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		F93D17261E0BA237003A2901 /* NotificationListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationListener.swift; path = Tracker/NotificationListener.swift; sourceTree = "<group>"; };
 		F97ECEC61E2F6C350089038F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F97ECECA1E2F7D3D0089038F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F9B986CC1E2CD93600E61414 /* ATTAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTAnalytics.swift; path = Tracker/ATTAnalytics.swift; sourceTree = "<group>"; };
-		F9F7FDBB1DE6CA61000E3ED6 /* TrackingPattern.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TrackingPattern.plist; path = TrackerConfig/TrackingPattern.plist; sourceTree = "<group>"; };
 		F9F7FDC41DE6CB25000E3ED6 /* ATTConfigConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTConfigConstants.swift; path = Tracker/ATTConfigConstants.swift; sourceTree = "<group>"; };
 		F9F7FDC51DE6CB25000E3ED6 /* ATTConfigParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTConfigParser.swift; path = Tracker/ATTConfigParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,8 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				F913A86A1E3629C700017F38 /* Container */,
-				F93D17261E0BA237003A2901 /* NotificationListener.swift */,
-				F9F7FDB91DE6CA53000E3ED6 /* TrackerConfig */,
 				F9F7FDAC1DE6B3D6000E3ED6 /* Tracker */,
 				F90ACEEF1DD1D9EC006671FA /* AppDelegate.swift */,
 				F90ACEF11DD1D9EC006671FA /* ViewController.swift */,
@@ -155,14 +149,6 @@
 				F9374F391E3B0D31007B626E /* ATTCustomEvent.swift */,
 			);
 			name = Tracker;
-			sourceTree = "<group>";
-		};
-		F9F7FDB91DE6CA53000E3ED6 /* TrackerConfig */ = {
-			isa = PBXGroup;
-			children = (
-				F9F7FDBB1DE6CA61000E3ED6 /* TrackingPattern.plist */,
-			);
-			name = TrackerConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +219,6 @@
 				F90ACEFA1DD1D9EC006671FA /* LaunchScreen.storyboard in Resources */,
 				F90ACEF71DD1D9EC006671FA /* Assets.xcassets in Resources */,
 				F90ACEF51DD1D9EC006671FA /* Main.storyboard in Resources */,
-				F9F7FDBD1DE6CA61000E3ED6 /* TrackingPattern.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +248,6 @@
 				F913A8711E3629D300017F38 /* ContainerRequest.swift in Sources */,
 				F913A8701E3629D300017F38 /* ContainerOperation.swift in Sources */,
 				F913A8741E3631D600017F38 /* ATTCoreDataManager.swift in Sources */,
-				F93D17271E0BA237003A2901 /* NotificationListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

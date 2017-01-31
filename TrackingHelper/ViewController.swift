@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loadACustomData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,6 +29,24 @@ class ViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func loadACustomData() -> Void {        
+        let customEvent = ATTCustomEvent()
+        let customArguments = ["param1":"value1", "param2":"value2"]
+        
+        customEvent.eventStarted()
+        
+        let url = NSURL(string: "http://www.stackoverflow.com")
+        let task = URLSession.shared.dataTask(with: url! as URL) {(data, response, error) in
+            customEvent.eventFinished()
+            ATTAnalytics.helper.registerForTracking(appSpecificKeyword: "ACustomEvent",
+                                                    dataURL: "http://www.stackoverflow.com",
+                                                    customArguments: customArguments as Dictionary<String, AnyObject>?,
+                                                    customEvent: customEvent)
+        }
+        
+        task.resume()
     }
     
     @IBAction func simpleButtonClick(_ sender: Any) {
