@@ -16,10 +16,12 @@ protocol ATTFlushManagerDelegate{
 class ATTFlushManager: NSObject {
     var delegate:ATTFlushManagerDelegate?
     
+    // MARK: - deinit
     deinit {
-        
+        self.delegate = nil
     }
     
+    // MARK: - inits
     override init() {
         super.init()
     }

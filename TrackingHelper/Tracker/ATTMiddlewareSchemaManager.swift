@@ -43,8 +43,13 @@ class ATTMiddlewareSchemaManager: NSObject {
         return Static.instance
     }
     
+    // MARK: - deinit
     deinit {
         NotificationCenter.default.removeObserver(self)
+        self.screenViewModel = nil
+        self.locationManager = nil
+        self.appInfo = nil
+        self.lastViewedScreen = nil
     }
     
     func startUpdatingLocations() -> Void {
@@ -84,7 +89,7 @@ class ATTMiddlewareSchemaManager: NSObject {
         }
     }
     
-    // MARK: Screen view events
+    // MARK: - Screen view events
     func startNewScreenViewWithScreenID(screenViewID:String?,
                                         screenName name:String?,
                                         screenViewBeginAt screenViewBeginTime:Date?) -> Void {
@@ -103,7 +108,7 @@ class ATTMiddlewareSchemaManager: NSObject {
         self.coreDataManager.updateScreenView(screenViewModel: self.screenViewModel)
     }
     
-    // MARK: Button action events
+    // MARK: - Button action events
     func createIBActionEvent(eventName:String?, eventStartTime startTime:Date?) -> Void {        
         let newEvent = ATTEventModel(screenViewID:self.screenViewModel?.screenViewID,
                                      eventType:"ButtonAction",
@@ -115,7 +120,7 @@ class ATTMiddlewareSchemaManager: NSObject {
         self.coreDataManager.createEvents(event: newEvent)
     }
     
-    // MARK: Button action events
+    // MARK: - Custom events
     func createCustomEvent(eventName:String?,
                            eventStartTime startTime:Date?,
                            dataURL:String?,
@@ -134,7 +139,7 @@ class ATTMiddlewareSchemaManager: NSObject {
     }
     
     func newScreenViewID() -> String? {
-        return "\(UUID().uuidString)\(self.timeStamp()!)"
+        return "\(UIDevice.current.identifierForVendor!.uuidString.replacingOccurrences(of: "-", with: ""))\(self.timeStamp()!)"
     }
     
     func timeStamp() -> String? {
@@ -142,6 +147,7 @@ class ATTMiddlewareSchemaManager: NSObject {
     }
 }
 
+// MARK: - Flush manager delegates
 extension ATTMiddlewareSchemaManager:ATTFlushManagerDelegate {
     func flushData() -> Array<AnyObject>? {
         self.syncableSchemaArray.removeAll()

@@ -48,7 +48,7 @@ public class ATTAnalytics: NSObject {
     private let cacheDirectory = (NSSearchPathForDirectoriesInDomains(.cachesDirectory,
                                                                       .userDomainMask,
                                                                       true)[0] as String).appending("/")
-    // MARK: Lazy variables
+    // MARK: - Lazy variables
     lazy var fileManager: FileManager = {
         return FileManager.default
     }()
@@ -57,7 +57,7 @@ public class ATTAnalytics: NSObject {
         return ATTMiddlewareSchemaManager()
     }()
     
-    // MARK: Shared object
+    // MARK: - Shared object
     /// Shared Object
     public class var helper: ATTAnalytics {
         struct Static {
@@ -67,7 +67,7 @@ public class ATTAnalytics: NSObject {
         return Static.instance
     }
     
-    // MARK: deinit
+    // MARK: - deinit
     deinit {
         self.configParser = nil
         self.configurationFilePath = nil
@@ -78,7 +78,7 @@ public class ATTAnalytics: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // MARK: Public Methods
+    // MARK: - Public Methods
     // Method with Local resource path
     public func beginTracking(pathForConfigFile:String?) -> Void {
         self.beginTracking(pathForConfigFile:pathForConfigFile, stateTrackingType:.Manual, methodTrackingType:.Manual)
@@ -173,7 +173,7 @@ public class ATTAnalytics: NSObject {
     }
     
     /////////////////////////////////////////////////////////////////////////////////////
-    // MARK: Private methods
+    // MARK: - Private methods
     private func setupMiddlewareManager() -> Void {
         ATTMiddlewareSchemaManager.manager.startUpdatingLocations()
         ATTMiddlewareSchemaManager.manager.startFlushManager()
@@ -312,7 +312,7 @@ public class ATTAnalytics: NSObject {
     }
     
     /////////////////////////////////////////////////////////////////////////////////////
-    // MARK: Crashlog file manipulations
+    // MARK: - Crashlog file manipulations
     private func readLastSavedCrashLog() -> String? {
         let fileName = ATTAnalytics.crashLogFileName
         let filePath = self.cacheDirectory.appending(fileName)
@@ -341,7 +341,7 @@ public class ATTAnalytics: NSObject {
     }
     
     /////////////////////////////////////////////////////////////////////////////////////
-    // MARK: Automatic screen change tracking
+    // MARK: - Automatic screen change tracking
     // MUST BE CALLED ONLY ONCE
     private func swizzileLifecycleMethodImplementation() -> Void {
         let originalClass = UIViewController.self
@@ -427,7 +427,7 @@ public class ATTAnalytics: NSObject {
     }
     
     /////////////////////////////////////////////////////////////////////////////////////
-    // MARK: Automatic function call tracking
+    // MARK: - Automatic function call tracking
     // MUST BE CALLED ONLY ONCE
     private func swizzileIBActionMethods() -> Void {
         let originalClass:AnyClass = UIApplication.self

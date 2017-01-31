@@ -15,10 +15,12 @@ class ATTLocationManager: NSObject {
     var longitude: CLLocationDegrees?
     var authorizedLocationTracking:Bool?
     
+    // MARK: - deinit
     deinit {
         
     }
     
+    // MARK: - inits
     override init() {
         super.init()
         self.locationManager = CLLocationManager()
@@ -28,6 +30,7 @@ class ATTLocationManager: NSObject {
     }
 }
 
+// MARK: - Location manager delegates
 extension ATTLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
