@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         super.viewDidAppear(true)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

@@ -347,13 +347,13 @@ public class ATTAnalytics: NSObject {
         let originalClass = UIViewController.self
         let swizzilableClass = ATTAnalytics.self
         
-        self.swizzileViewDidAppear(originalClass: originalClass, and: swizzilableClass)
+        self.swizzileViewWillAppear(originalClass: originalClass, and: swizzilableClass)
         self.swizzileViewDidDisappear(originalClass: originalClass, and: swizzilableClass)
     }
     
-    private func swizzileViewDidAppear(originalClass:AnyClass?, and swizzilableClass:AnyClass?) -> Void {
-        let swizzilableSelector = #selector(ATTAnalytics.trackViewDidAppear(_:))
-        self.stateChangeTrackingSelector = #selector(UIViewController.viewDidAppear(_:))
+    private func swizzileViewWillAppear(originalClass:AnyClass?, and swizzilableClass:AnyClass?) -> Void {
+        let swizzilableSelector = #selector(ATTAnalytics.trackViewWillAppear(_:))
+        self.stateChangeTrackingSelector = #selector(UIViewController.viewWillAppear(_:))
         
         let originalMethod = class_getInstanceMethod(originalClass, self.stateChangeTrackingSelector!)
         let swizzledMethod = class_getInstanceMethod(swizzilableClass, swizzilableSelector)
@@ -370,7 +370,7 @@ public class ATTAnalytics: NSObject {
     }
     
     // Swizzled methods
-    func trackViewDidAppear(_ animated: Bool) -> Void {
+    func trackViewWillAppear(_ animated: Bool) -> Void {
         // Here self refers to the UIViewController, self.autoTrackScreenChanges() will crash
         if "\(self.classForCoder)" != "UINavigationController"
             && "\(self.classForCoder)" != "UITabBarController"
