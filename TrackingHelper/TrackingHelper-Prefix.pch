@@ -1,0 +1,17 @@
+//
+//  TrackingHelper-Prefix.pch
+//  TrackingHelper
+//
+//  Created by Sreekanth R on 01/02/17.
+//  Copyright © 2017 Sreekanth R. All rights reserved.
+//
+
+#ifndef TrackingHelper_Prefix_pch
+#define TrackingHelper_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* TrackingHelper_Prefix_pch */
+
+#define GA_EXISTS

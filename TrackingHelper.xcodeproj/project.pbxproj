@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4A6D7EC7AB81D404AE7279 /* Pods_TrackingHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A7BA7BD39EAC78EC1FF4E6 /* Pods_TrackingHelper.framework */; };
 		F90ACEF01DD1D9EC006671FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ACEEF1DD1D9EC006671FA /* AppDelegate.swift */; };
 		F90ACEF21DD1D9EC006671FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ACEF11DD1D9EC006671FA /* ViewController.swift */; };
 		F90ACEF51DD1D9EC006671FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90ACEF31DD1D9EC006671FA /* Main.storyboard */; };
@@ -18,13 +19,16 @@
 		F913A8671E3629BD00017F38 /* ATTLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8621E3629BD00017F38 /* ATTLocationManager.swift */; };
 		F913A8681E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8631E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift */; };
 		F913A8691E3629BD00017F38 /* ATTScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8641E3629BD00017F38 /* ATTScreenViewModel.swift */; };
-		F913A86F1E3629D300017F38 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A86B1E3629D300017F38 /* Container.swift */; };
-		F913A8701E3629D300017F38 /* ContainerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A86C1E3629D300017F38 /* ContainerOperation.swift */; };
-		F913A8711E3629D300017F38 /* ContainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A86D1E3629D300017F38 /* ContainerRequest.swift */; };
-		F913A8721E3629D300017F38 /* ContainerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A86E1E3629D300017F38 /* ContainerResponse.swift */; };
 		F913A8741E3631D600017F38 /* ATTCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913A8731E3631D600017F38 /* ATTCoreDataManager.swift */; };
 		F913A8971E36326300017F38 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F913A8961E36326300017F38 /* CoreData.framework */; };
 		F913A89A1E3633AF00017F38 /* ATTDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F913A8981E3633AF00017F38 /* ATTDB.xcdatamodeld */; };
+		F914AC341E41BDB80093E97E /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F914AC301E41BDB80093E97E /* Container.swift */; };
+		F914AC351E41BDB80093E97E /* ContainerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F914AC311E41BDB80093E97E /* ContainerOperation.swift */; };
+		F914AC361E41BDB80093E97E /* ContainerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F914AC321E41BDB80093E97E /* ContainerRequest.swift */; };
+		F914AC371E41BDB80093E97E /* ContainerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F914AC331E41BDB80093E97E /* ContainerResponse.swift */; };
+		F914AC3D1E41BE810093E97E /* ATTGAHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F914AC3C1E41BE810093E97E /* ATTGAHelper.m */; };
+		F914AC3F1E41C1290093E97E /* TrackingPattern.plist in Resources */ = {isa = PBXBuildFile; fileRef = F914AC3E1E41C1290093E97E /* TrackingPattern.plist */; };
+		F914AC471E41D4B00093E97E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F914AC461E41D4B00093E97E /* GoogleService-Info.plist */; };
 		F9374F3A1E3B0D31007B626E /* ATTCustomEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9374F391E3B0D31007B626E /* ATTCustomEvent.swift */; };
 		F93D17251E0B9A2B003A2901 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93D17241E0B9A2B003A2901 /* BaseViewController.swift */; };
 		F97ECEC71E2F6C350089038F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97ECEC61E2F6C350089038F /* CoreLocation.framework */; };
@@ -35,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23F3F3C7F7A6259B348C889A /* Pods-TrackingHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackingHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrackingHelper/Pods-TrackingHelper.release.xcconfig"; sourceTree = "<group>"; };
+		60A7BA7BD39EAC78EC1FF4E6 /* Pods_TrackingHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrackingHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2B64DE0C813F45A2088E72 /* Pods-TrackingHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrackingHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrackingHelper/Pods-TrackingHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		F90ACEEC1DD1D9EC006671FA /* TrackingHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90ACEEF1DD1D9EC006671FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F90ACEF11DD1D9EC006671FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,13 +55,19 @@
 		F913A8621E3629BD00017F38 /* ATTLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTLocationManager.swift; path = Tracker/ATTLocationManager.swift; sourceTree = "<group>"; };
 		F913A8631E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTMiddlewareSchemaManager.swift; path = Tracker/ATTMiddlewareSchemaManager.swift; sourceTree = "<group>"; };
 		F913A8641E3629BD00017F38 /* ATTScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTScreenViewModel.swift; path = Tracker/ATTScreenViewModel.swift; sourceTree = "<group>"; };
-		F913A86B1E3629D300017F38 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = Container/Container.swift; sourceTree = "<group>"; };
-		F913A86C1E3629D300017F38 /* ContainerOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerOperation.swift; path = Container/ContainerOperation.swift; sourceTree = "<group>"; };
-		F913A86D1E3629D300017F38 /* ContainerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerRequest.swift; path = Container/ContainerRequest.swift; sourceTree = "<group>"; };
-		F913A86E1E3629D300017F38 /* ContainerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerResponse.swift; path = Container/ContainerResponse.swift; sourceTree = "<group>"; };
 		F913A8731E3631D600017F38 /* ATTCoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTCoreDataManager.swift; path = Tracker/ATTCoreDataManager.swift; sourceTree = "<group>"; };
 		F913A8961E36326300017F38 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F913A8991E3633AF00017F38 /* ATTDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATTDB.xcdatamodel; sourceTree = "<group>"; };
+		F914AC301E41BDB80093E97E /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Container.swift; path = Tracker/Container.swift; sourceTree = "<group>"; };
+		F914AC311E41BDB80093E97E /* ContainerOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerOperation.swift; path = Tracker/ContainerOperation.swift; sourceTree = "<group>"; };
+		F914AC321E41BDB80093E97E /* ContainerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerRequest.swift; path = Tracker/ContainerRequest.swift; sourceTree = "<group>"; };
+		F914AC331E41BDB80093E97E /* ContainerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerResponse.swift; path = Tracker/ContainerResponse.swift; sourceTree = "<group>"; };
+		F914AC381E41BDDA0093E97E /* TrackingHelper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrackingHelper-Prefix.pch"; sourceTree = "<group>"; };
+		F914AC391E41BE1A0093E97E /* Bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-header.h"; sourceTree = "<group>"; };
+		F914AC3B1E41BE810093E97E /* ATTGAHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTGAHelper.h; path = GoogleAnalytics/ATTGAHelper.h; sourceTree = "<group>"; };
+		F914AC3C1E41BE810093E97E /* ATTGAHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTGAHelper.m; path = GoogleAnalytics/ATTGAHelper.m; sourceTree = "<group>"; };
+		F914AC3E1E41C1290093E97E /* TrackingPattern.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrackingPattern.plist; sourceTree = "<group>"; };
+		F914AC461E41D4B00093E97E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F9374F391E3B0D31007B626E /* ATTCustomEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ATTCustomEvent.swift; path = Tracker/ATTCustomEvent.swift; sourceTree = "<group>"; };
 		F93D17241E0B9A2B003A2901 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F97ECEC61E2F6C350089038F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -72,18 +85,29 @@
 				F913A8971E36326300017F38 /* CoreData.framework in Frameworks */,
 				F97ECECB1E2F7D3D0089038F /* MapKit.framework in Frameworks */,
 				F97ECEC71E2F6C350089038F /* CoreLocation.framework in Frameworks */,
+				1C4A6D7EC7AB81D404AE7279 /* Pods_TrackingHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43A2E96034C1E30EE1AFD4E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A2B64DE0C813F45A2088E72 /* Pods-TrackingHelper.debug.xcconfig */,
+				23F3F3C7F7A6259B348C889A /* Pods-TrackingHelper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F90ACEE31DD1D9EC006671FA = {
 			isa = PBXGroup;
 			children = (
 				F90ACEEE1DD1D9EC006671FA /* TrackingHelper */,
 				F90ACEED1DD1D9EC006671FA /* Products */,
 				F97ECEC51E2F6C340089038F /* Frameworks */,
+				43A2E96034C1E30EE1AFD4E1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,7 +122,9 @@
 		F90ACEEE1DD1D9EC006671FA /* TrackingHelper */ = {
 			isa = PBXGroup;
 			children = (
-				F913A86A1E3629C700017F38 /* Container */,
+				F914AC461E41D4B00093E97E /* GoogleService-Info.plist */,
+				F914AC3E1E41C1290093E97E /* TrackingPattern.plist */,
+				F914AC3A1E41BE770093E97E /* GoogleAnalytics */,
 				F9F7FDAC1DE6B3D6000E3ED6 /* Tracker */,
 				F90ACEEF1DD1D9EC006671FA /* AppDelegate.swift */,
 				F90ACEF11DD1D9EC006671FA /* ViewController.swift */,
@@ -108,19 +134,19 @@
 				F90ACEF81DD1D9EC006671FA /* LaunchScreen.storyboard */,
 				F90ACEFB1DD1D9EC006671FA /* Info.plist */,
 				F93D17241E0B9A2B003A2901 /* BaseViewController.swift */,
+				F914AC381E41BDDA0093E97E /* TrackingHelper-Prefix.pch */,
+				F914AC391E41BE1A0093E97E /* Bridge-header.h */,
 			);
 			path = TrackingHelper;
 			sourceTree = "<group>";
 		};
-		F913A86A1E3629C700017F38 /* Container */ = {
+		F914AC3A1E41BE770093E97E /* GoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				F913A86B1E3629D300017F38 /* Container.swift */,
-				F913A86C1E3629D300017F38 /* ContainerOperation.swift */,
-				F913A86D1E3629D300017F38 /* ContainerRequest.swift */,
-				F913A86E1E3629D300017F38 /* ContainerResponse.swift */,
+				F914AC3B1E41BE810093E97E /* ATTGAHelper.h */,
+				F914AC3C1E41BE810093E97E /* ATTGAHelper.m */,
 			);
-			name = Container;
+			name = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 		F97ECEC51E2F6C340089038F /* Frameworks */ = {
@@ -129,6 +155,7 @@
 				F913A8961E36326300017F38 /* CoreData.framework */,
 				F97ECECA1E2F7D3D0089038F /* MapKit.framework */,
 				F97ECEC61E2F6C350089038F /* CoreLocation.framework */,
+				60A7BA7BD39EAC78EC1FF4E6 /* Pods_TrackingHelper.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,6 +163,10 @@
 		F9F7FDAC1DE6B3D6000E3ED6 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				F914AC301E41BDB80093E97E /* Container.swift */,
+				F914AC311E41BDB80093E97E /* ContainerOperation.swift */,
+				F914AC321E41BDB80093E97E /* ContainerRequest.swift */,
+				F914AC331E41BDB80093E97E /* ContainerResponse.swift */,
 				F913A8601E3629BD00017F38 /* ATTEventModel.swift */,
 				F913A8611E3629BD00017F38 /* ATTFlushManager.swift */,
 				F913A8621E3629BD00017F38 /* ATTLocationManager.swift */,
@@ -158,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F90ACEFE1DD1D9EC006671FA /* Build configuration list for PBXNativeTarget "TrackingHelper" */;
 			buildPhases = (
+				70FB4C53C611B05468107065 /* [CP] Check Pods Manifest.lock */,
 				F90ACEE81DD1D9EC006671FA /* Sources */,
 				F90ACEE91DD1D9EC006671FA /* Frameworks */,
 				F90ACEEA1DD1D9EC006671FA /* Resources */,
+				6ECF05347790ABC4A92DDD41 /* [CP] Embed Pods Frameworks */,
+				D6F38FCAAEAE6BC9F9478BD2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,7 +250,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F914AC3F1E41C1290093E97E /* TrackingPattern.plist in Resources */,
 				F90ACEFA1DD1D9EC006671FA /* LaunchScreen.storyboard in Resources */,
+				F914AC471E41D4B00093E97E /* GoogleService-Info.plist in Resources */,
 				F90ACEF71DD1D9EC006671FA /* Assets.xcassets in Resources */,
 				F90ACEF51DD1D9EC006671FA /* Main.storyboard in Resources */,
 			);
@@ -224,14 +260,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6ECF05347790ABC4A92DDD41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrackingHelper/Pods-TrackingHelper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70FB4C53C611B05468107065 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D6F38FCAAEAE6BC9F9478BD2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrackingHelper/Pods-TrackingHelper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F90ACEE81DD1D9EC006671FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F913A8691E3629BD00017F38 /* ATTScreenViewModel.swift in Sources */,
+				F914AC3D1E41BE810093E97E /* ATTGAHelper.m in Sources */,
+				F914AC351E41BDB80093E97E /* ContainerOperation.swift in Sources */,
 				F90ACF0A1DD1F405006671FA /* ViewController2.swift in Sources */,
-				F913A8721E3629D300017F38 /* ContainerResponse.swift in Sources */,
 				F913A8651E3629BD00017F38 /* ATTEventModel.swift in Sources */,
 				F913A8661E3629BD00017F38 /* ATTFlushManager.swift in Sources */,
 				F9F7FDC81DE6CB25000E3ED6 /* ATTConfigParser.swift in Sources */,
@@ -243,10 +328,10 @@
 				F913A89A1E3633AF00017F38 /* ATTDB.xcdatamodeld in Sources */,
 				F913A8681E3629BD00017F38 /* ATTMiddlewareSchemaManager.swift in Sources */,
 				F90ACEF01DD1D9EC006671FA /* AppDelegate.swift in Sources */,
-				F913A86F1E3629D300017F38 /* Container.swift in Sources */,
+				F914AC341E41BDB80093E97E /* Container.swift in Sources */,
+				F914AC371E41BDB80093E97E /* ContainerResponse.swift in Sources */,
+				F914AC361E41BDB80093E97E /* ContainerRequest.swift in Sources */,
 				F913A8671E3629BD00017F38 /* ATTLocationManager.swift in Sources */,
-				F913A8711E3629D300017F38 /* ContainerRequest.swift in Sources */,
-				F913A8701E3629D300017F38 /* ContainerOperation.swift in Sources */,
 				F913A8741E3631D600017F38 /* ATTCoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,26 +451,32 @@
 		};
 		F90ACEFF1DD1D9EC006671FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A2B64DE0C813F45A2088E72 /* Pods-TrackingHelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E5D4K2QHUQ;
+				GCC_PREFIX_HEADER = "TrackingHelper/TrackingHelper-Prefix.pch";
 				INFOPLIST_FILE = TrackingHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.attinad.communications.TrackingHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.attinad.communications.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrackingHelper/Bridge-header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		F90ACF001DD1D9EC006671FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23F3F3C7F7A6259B348C889A /* Pods-TrackingHelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E5D4K2QHUQ;
+				GCC_PREFIX_HEADER = "TrackingHelper/TrackingHelper-Prefix.pch";
 				INFOPLIST_FILE = TrackingHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.attinad.communications.TrackingHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.attinad.communications.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TrackingHelper/Bridge-header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

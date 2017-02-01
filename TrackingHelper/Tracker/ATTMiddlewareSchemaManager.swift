@@ -19,6 +19,7 @@ class ATTMiddlewareSchemaManager: NSObject {
     var appInfo:Dictionary<String, AnyObject>?
     var appLaunched:Bool?
     var lastViewedScreen:String?
+    var lastViewedScreenClass:AnyClass?
     
     // MARK: Lazy initializations
     lazy var syncableSchemaArray: Array<AnyObject> = {
@@ -84,6 +85,7 @@ class ATTMiddlewareSchemaManager: NSObject {
         if self.appLaunched == false {
             self.startNewScreenViewWithScreenID(screenViewID: self.newScreenViewID(),
                                                 screenName: self.lastViewedScreen,
+                                                screenClass: self.lastViewedScreenClass,
                                                 screenViewBeginAt: Date())
             self.appLaunched = false
         }
@@ -92,13 +94,17 @@ class ATTMiddlewareSchemaManager: NSObject {
     // MARK: - Screen view events
     func startNewScreenViewWithScreenID(screenViewID:String?,
                                         screenName name:String?,
+                                        screenClass aClass:AnyClass?,
                                         screenViewBeginAt screenViewBeginTime:Date?) -> Void {
         self.lastViewedScreen = name
+        self.lastViewedScreenClass = aClass
+        
         self.screenViewModel = ATTScreenViewModel(screenViewID:screenViewID,
                                                   screenName:name,
                                                   screenViewBeginAt:screenViewBeginTime,
                                                   latitude:self.locationManager?.latitude,
                                                   longitude:self.locationManager?.longitude)
+        
         self.coreDataManager.createScreenView(screenViewModel: self.screenViewModel)
     }
     

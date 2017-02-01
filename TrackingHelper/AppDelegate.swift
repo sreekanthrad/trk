@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var gaHelper:ATTGAHelper?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -21,10 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func configureTrackingHelper() -> Void {
-        
-        ATTAnalytics.helper.beginTracking(pathForConfigFile: nil,
+        let filePath = Bundle.main.path(forResource: "TrackingPattern", ofType: "plist")
+        ATTAnalytics.helper.beginTracking(pathForConfigFile: filePath,
                                           stateTrackingType: .Automatic,
                                           methodTrackingType: .Automatic)
+        
+        self.gaHelper = ATTGAHelper.init(trackingID: "UA-86961292-1")
         
     }
     

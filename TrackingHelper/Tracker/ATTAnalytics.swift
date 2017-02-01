@@ -136,21 +136,32 @@ public class ATTAnalytics: NSObject {
                                     customArguments arguments:Dictionary<String, AnyObject>?,
                                     customEvent event:ATTCustomEvent?) -> Void {
         
-        self.trackConfigurationForClass(aClass:nil,
-                                        withSelector:nil,
-                                        ofStateType:.Event,
-                                        havingAppSpecificKeyword:keyword,
-                                        withCustomArguments:arguments)
-        
+        let configs = self.trackConfigurationForClass(aClass:nil,
+                                                      withSelector:nil,
+                                                      ofStateType:.Event,
+                                                      havingAppSpecificKeyword:keyword,
+                                                      withCustomArguments:arguments)
+        var eventArguments = arguments
         var duration:Double = 0.0
         if event != nil {
             duration = (event?.duration)!
         }
         
+        if configs != nil {
+            var customParams = Array<AnyObject>()
+            for eachParam in configs! {
+                let customParamDict = ["agent":eachParam["agent"] as AnyObject,
+                                       "param":eachParam["param"] as AnyObject]
+                customParams.append(customParamDict as AnyObject)
+            }
+            
+            eventArguments?["AgentParams"] = customParams as AnyObject            
+        }
+        
         ATTMiddlewareSchemaManager.manager.createCustomEvent(eventName: keyword,
                                                              eventStartTime: Date(),
                                                              dataURL: url,
-                                                             customArguments: arguments,
+                                                             customArguments: eventArguments,
                                                              eventDuration: duration)
     }
     
@@ -235,7 +246,7 @@ public class ATTAnalytics: NSObject {
                                             withSelector selector:Selector?,
                                             ofStateType type:StateTypes?,
                                             havingAppSpecificKeyword keyword:String?,
-                                            withCustomArguments arguments:Dictionary<String, AnyObject>?) -> Void {
+                                            withCustomArguments arguments:Dictionary<String, AnyObject>?) -> Array<AnyObject>? {
         
         let paramters = self.configurationForClass(aClass:aClass,
                                                    withSelector:selector,
@@ -246,6 +257,8 @@ public class ATTAnalytics: NSObject {
             self.registeredAnEvent(configuration:paramters,
                                    customArguments:arguments)
         }
+        
+        return paramters
     }
     
     // Parsing the Configuration file
@@ -395,7 +408,7 @@ public class ATTAnalytics: NSObject {
             self.presentViewControllerName = "\(topViewController.classForCoder)"
             self.screenViewStart = Date()
             self.triggerEventForTheVisibleViewController(viewController:topViewController)
-            self.createNewScreenView()
+            self.createNewScreenView(withClass: topViewController.classForCoder)
             self.formulatePreviousScreenActivityObject()
         }
     }
@@ -411,10 +424,11 @@ public class ATTAnalytics: NSObject {
         }
     }
     
-    private func createNewScreenView() -> Void {
+    private func createNewScreenView(withClass aClass:AnyClass?) -> Void {
         self.screenViewID = self.schemaManager.newScreenViewID()
         ATTMiddlewareSchemaManager.manager.startNewScreenViewWithScreenID(screenViewID: self.screenViewID,
                                                                           screenName: self.presentViewControllerName,
+                                                                          screenClass:aClass,
                                                                           screenViewBeginAt: self.screenViewStart)
     }
     
