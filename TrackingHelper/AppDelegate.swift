@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let filePath = Bundle.main.path(forResource: "TrackingPattern", ofType: "plist")
         ATTAnalytics.helper.beginTracking(pathForConfigFile: filePath,
                                           stateTrackingType: .Automatic,
-                                          methodTrackingType: .Automatic)
+                                          actionTrackingType: .Automatic)
         
         self.gaHelper = ATTGAHelper.init(trackingID: "UA-86961292-1")
         
