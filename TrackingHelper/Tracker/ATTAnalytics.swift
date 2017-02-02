@@ -81,12 +81,12 @@ public class ATTAnalytics: NSObject {
     // MARK: - Public Methods
     // Method with Local resource path
     public func beginTracking(pathForConfigFile:String?) -> Void {
-        self.beginTracking(pathForConfigFile:pathForConfigFile, stateTrackingType:.Manual, methodTrackingType:.Manual)
+        self.beginTracking(pathForConfigFile:pathForConfigFile, stateTrackingType:.Manual, actionTrackingType:.Manual)
     }
     
     public func beginTracking(pathForConfigFile:String?,
                               stateTrackingType stateType:TrackingTypes?,
-                              methodTrackingType methodType:TrackingTypes?) -> Void {
+                              actionTrackingType methodType:TrackingTypes?) -> Void {
         
         self.configurationFilePath = pathForConfigFile
         self.createConfigParser(configurations:self.configurationDictionary() as? Dictionary<String, AnyObject>)
@@ -96,12 +96,12 @@ public class ATTAnalytics: NSObject {
 
     // Method with configurations as Dictionary
     public func beginTracking(configuration:Dictionary<String, AnyObject>?) -> Void {
-        self.beginTracking(configuration:configuration, stateTrackingType:.Manual, methodTrackingType:.Manual)
+        self.beginTracking(configuration:configuration, stateTrackingType:.Manual, actionTrackingType:.Manual)
     }
     
     public func beginTracking(configuration:Dictionary<String, AnyObject>?,
                               stateTrackingType stateType:TrackingTypes?,
-                              methodTrackingType methodType:TrackingTypes?) -> Void {
+                              actionTrackingType methodType:TrackingTypes?) -> Void {
         
         self.createConfigParser(configurations:configuration)
         self.configureSwizzling(stateTracking:stateType, methodTracking:methodType)
@@ -112,20 +112,20 @@ public class ATTAnalytics: NSObject {
     // Swift project not required the below function calls
     public func beginTracking(pathForConfigFile:String?,
                               stateTrackingType stateType:String?,
-                              methodTrackingType methodType:String?) -> Void {
+                              actionTrackingType methodType:String?) -> Void {
         
         self.configurationFilePath = pathForConfigFile
         self.createConfigParser(configurations:self.configurationDictionary() as? Dictionary<String, AnyObject>)
-        self.configureObjCEventTracking(stateTrackingType: stateType, methodTrackingType: methodType)
+        self.configureObjCEventTracking(stateTrackingType: stateType, actionTrackingType: methodType)
         self.setupMiddlewareManager()
     }
     
     public func beginTracking(configuration:Dictionary<String, AnyObject>?,
                               stateTrackingType stateType:String?,
-                              methodTrackingType methodType:String?) -> Void {
+                              actionTrackingType methodType:String?) -> Void {
         
         self.createConfigParser(configurations:configuration)
-        self.configureObjCEventTracking(stateTrackingType: stateType, methodTrackingType: methodType)
+        self.configureObjCEventTracking(stateTrackingType: stateType, actionTrackingType: methodType)
         self.setupMiddlewareManager()
     }
     
@@ -192,7 +192,7 @@ public class ATTAnalytics: NSObject {
     }
     
     private func configureObjCEventTracking(stateTrackingType stateType:String?,
-                                            methodTrackingType methodType:String?) -> Void {
+                                            actionTrackingType methodType:String?) -> Void {
         var sType:TrackingTypes = .Manual
         var mType:TrackingTypes = .Manual
         if stateType == ATTAnalytics.TrackingTypeAuto {
