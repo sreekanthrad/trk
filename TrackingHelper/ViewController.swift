@@ -14,9 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.loadACustomData()
-        
+        self.loadACustomData()        
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,11 +47,10 @@ class ViewController: UIViewController {
         // Explict calls with custom parameters
         let customArguments = ["param1":"value1", "param2":"value2"]
         
-        let customEvent = ATTCustomEvent() // New instances should be created for each event
-        customEvent.eventStarted() // When a URL request raised
-        customEvent.eventFinished() // When the request receives the response
+        let customEvent = ATTCustomEvent()
+        customEvent.eventStarted()
+        customEvent.eventFinished()
         
-        // This call after the response received
         ATTAnalytics.helper.registerForTracking(appSpecificKeyword: "ACustomEvent",
                                                 dataURL: "http://www.google.com",
                                                 customArguments: customArguments as Dictionary<String, AnyObject>?,

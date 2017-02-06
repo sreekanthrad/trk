@@ -242,7 +242,7 @@ public class ATTAnalytics: NSObject {
     }
     
     // Looping through the configuration to find out the matching paramters and values
-    private func trackConfigurationForClass(aClass:AnyClass?,
+    @discardableResult private func trackConfigurationForClass(aClass:AnyClass?,
                                             withSelector selector:Selector?,
                                             ofStateType type:StateTypes?,
                                             havingAppSpecificKeyword keyword:String?,

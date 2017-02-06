@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TrackingHelper/GoogleAnalytics/ATTGAHelper.m"
-            timestampString = "507646721.251244"
+            filePath = "TrackingHelper/Tracker/ATTAnalytics.swift"
+            timestampString = "508075798.240622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-trackScreenChange:"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "registerForCrashLogging()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrackingHelper/Tracker/ATTAnalytics.swift"
+            timestampString = "508075804.096544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "registerForCrashLogging()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -66,7 +66,7 @@
                                                                      trackingId:self.trackingID];
     GAI *gai = [GAI sharedInstance];
     gai.trackUncaughtExceptions = YES;
-    gai.logger.logLevel = kGAILogLevelVerbose;
+    gai.logger.logLevel = kGAILogLevelNone;
 #endif
 }
 

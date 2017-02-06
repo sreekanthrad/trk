@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var gaHelper:ATTGAHelper?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector (AppDelegate.crashNotification(notification:)),
+                                               name: NSNotification.Name(rawValue: "RegisterForCrashTrakingNotification"),
+                                               object: nil)
         self.configureTrackingHelper()
         
         return true
@@ -40,5 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {}
+    
+    func crashNotification(notification:Notification?) -> Void {
+        print("Crash : \(notification)")
+    }
 }
 
