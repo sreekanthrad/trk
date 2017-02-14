@@ -362,6 +362,7 @@ public class ATTAnalytics: NSObject {
         
         self.swizzileViewWillAppear(originalClass: originalClass, and: swizzilableClass)
         self.swizzileViewDidDisappear(originalClass: originalClass, and: swizzilableClass)
+        // WillAppear and DidDisappear is done to track maximum events
     }
     
     private func swizzileViewWillAppear(originalClass:AnyClass?, and swizzilableClass:AnyClass?) -> Void {
